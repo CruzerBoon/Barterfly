@@ -7,7 +7,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "angel2015klService", "angel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "angel2015kl", "angel2015kl\angel2015kl.csproj", "{F497D934-2FB3-44DD-87CB-592C0AE567FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormTest", "WinFormTest\WinFormTest.csproj", "{03533FB2-7326-4679-8AED-C2FFFDEE5F6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bartergraph", "bartergraph\bartergraph.csproj", "{CB23F872-6965-4CAE-83DC-44923DEC9FBB}"
+EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://logicstory.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = angel2015kl\\angel2015kl.csproj
+		SccProjectName1 = angel2015kl
+		SccLocalPath1 = angel2015kl
+		SccProjectUniqueName2 = angel2015klService\\angel2015klService.csproj
+		SccProjectName2 = angel2015klService
+		SccLocalPath2 = angel2015klService
+		SccProjectUniqueName3 = WinFormTest\\WinFormTest.csproj
+		SccProjectName3 = WinFormTest
+		SccLocalPath3 = WinFormTest
+		SccProjectUniqueName4 = bartergraph\\bartergraph.csproj
+		SccProjectName4 = bartergraph
+		SccLocalPath4 = bartergraph
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -21,6 +43,14 @@ Global
 		{F497D934-2FB3-44DD-87CB-592C0AE567FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F497D934-2FB3-44DD-87CB-592C0AE567FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F497D934-2FB3-44DD-87CB-592C0AE567FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03533FB2-7326-4679-8AED-C2FFFDEE5F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03533FB2-7326-4679-8AED-C2FFFDEE5F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03533FB2-7326-4679-8AED-C2FFFDEE5F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03533FB2-7326-4679-8AED-C2FFFDEE5F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB23F872-6965-4CAE-83DC-44923DEC9FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB23F872-6965-4CAE-83DC-44923DEC9FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB23F872-6965-4CAE-83DC-44923DEC9FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB23F872-6965-4CAE-83DC-44923DEC9FBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 $(function() {
     var client = new WindowsAzure.MobileServiceClient('http://angel2015kl.azure-mobile.net/', 'QIeEkWaRzdBnPiqKFyXTyHfvwJSdTQ14');
     var todoItemTable = client.getTable('todoitem');
+    var userProfileTable = client.getTable('userprofile');
 
     // Read current data and rebuild UI.
     // If you plan to generate complex UIs like this, consider using a JavaScript templating library.

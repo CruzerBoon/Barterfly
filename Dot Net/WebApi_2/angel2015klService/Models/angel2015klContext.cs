@@ -27,6 +27,15 @@ namespace angel2015klService.Models
 
         public DbSet<TodoItem> TodoItems { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<RequestItem> RequestItems { get; set; }
+        public DbSet<RequestItemImage> RequestItemImages { get; set; }
+        public DbSet<RequestItemLike> RequestItemLikes { get; set; }
+        public DbSet<RequestItemComment> RequestItemComments { get; set; }
+        public DbSet<TradeItem> TradeItems { get; set; }
+        public DbSet<TradeItemImage> TradeItemImages { get; set; }
+        public DbSet<TradeItemLike> TradeItemLikes { get; set; }
+        public DbSet<TradeItemWishList> TradeItemWishLists { get; set; }
+        public DbSet<TradeItemComment> TradeItemComments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

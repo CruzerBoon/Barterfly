@@ -279,3 +279,16 @@ C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\o
 C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\bin\Facebook.dll
 C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\bin\Facebook.xml
 C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\obj\Debug\angel2015klService.csprojResolveAssemblyReference.cache
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\Facebook.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\Microsoft.WindowsAzure.Mobile.Service.Security.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\Facebook.xml
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\Microsoft.WindowsAzure.Mobile.Service.Security.xml
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\de\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\es\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\fr\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\it\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\ja\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\ko\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\ru\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\zh-Hans\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll
+C:\Users\GeeWai\Documents\TFS\VSOnline\LogicStory\AngelHack2015\angel2015kl_\angel2015klService\bin\zh-Hant\Microsoft.WindowsAzure.Mobile.Service.Security.resources.dll

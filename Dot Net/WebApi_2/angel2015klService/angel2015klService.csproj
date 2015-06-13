@@ -199,11 +199,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ApiControllerBase.cs" />
-    <Compile Include="Controllers\SecController.cs" />
+    <Compile Include="Controllers\AllRequestItemController.cs" />
+    <Compile Include="Controllers\AllTradeItemController.cs" />
+    <Compile Include="Controllers\RequestItemCommentController.cs" />
+    <Compile Include="Controllers\RequestItemController.cs" />
+    <Compile Include="Controllers\RequestItemImageController.cs" />
+    <Compile Include="Controllers\RequestItemLikeController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
+    <Compile Include="Controllers\TradeItemCommentController.cs" />
+    <Compile Include="Controllers\TradeItemController.cs" />
+    <Compile Include="Controllers\TradeItemImageController.cs" />
+    <Compile Include="Controllers\TradeItemLikeController.cs" />
+    <Compile Include="Controllers\TradeItemWishListController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="DataObjects\RequestItem.cs" />
+    <Compile Include="DataObjects\RequestItemComment.cs" />
+    <Compile Include="DataObjects\RequestItemImage.cs" />
+    <Compile Include="DataObjects\RequestItemLike.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
+    <Compile Include="DataObjects\TradeItem.cs" />
+    <Compile Include="DataObjects\TradeItemComment.cs" />
+    <Compile Include="DataObjects\TradeItemImage.cs" />
+    <Compile Include="DataObjects\TradeItemLike.cs" />
+    <Compile Include="DataObjects\TradeItemWishList.cs" />
     <Compile Include="DataObjects\UserProfile.cs" />
     <Compile Include="Helper\Constant.cs" />
     <Compile Include="Migrations\Configuration.cs" />

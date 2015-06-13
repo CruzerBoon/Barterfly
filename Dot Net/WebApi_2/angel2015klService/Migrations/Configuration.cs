@@ -9,7 +9,7 @@ namespace angel2015klService.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(angel2015klService.Models.angel2015klContext context)
