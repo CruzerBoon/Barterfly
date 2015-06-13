@@ -11,7 +11,6 @@ using System.Web.Http.Controllers;
 
 namespace angel2015klService.Controllers
 {
-    [AuthorizeLevel(Microsoft.WindowsAzure.Mobile.Service.Security.AuthorizationLevel.Anonymous)]
     public class UserProfileController : TableController<DataObjects.UserProfile>
     {
         protected override void Initialize(HttpControllerContext controllerContext)

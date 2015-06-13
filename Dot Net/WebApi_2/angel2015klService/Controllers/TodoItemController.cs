@@ -6,9 +6,11 @@ using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
 using angel2015klService.DataObjects;
 using angel2015klService.Models;
+using System.Web.Http.Cors;
 
 namespace angel2015klService.Controllers
 {
+    [AuthorizeLevel(Microsoft.WindowsAzure.Mobile.Service.Security.AuthorizationLevel.Anonymous)]
     public class TodoItemController : TableController<TodoItem>
     {
         protected override void Initialize(HttpControllerContext controllerContext)

@@ -5,6 +5,7 @@ using System.Web.Http;
 using Microsoft.WindowsAzure.Mobile.Service;
 using angel2015klService.DataObjects;
 using angel2015klService.Models;
+using System.Web.Http.Cors;
 
 namespace angel2015klService
 {
@@ -17,6 +18,9 @@ namespace angel2015klService
 
             // Use this class to set WebAPI configuration options
             HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+
+            var cors = new EnableCorsAttribute("http://localhost:50015", "*", "*");
+            config.EnableCors(cors);
 
             // To display errors in the browser during development, uncomment the following
             // line. Comment it out again when you deploy your service for production use.

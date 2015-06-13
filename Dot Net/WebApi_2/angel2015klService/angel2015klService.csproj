@@ -206,6 +206,7 @@
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="DataObjects\UserProfile.cs" />
     <Compile Include="Helper\Constant.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\angel2015klContext.cs" />
     <Compile Include="Models\BarterflyModel.Context.cs">
       <AutoGen>True</AutoGen>

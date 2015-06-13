@@ -278,3 +278,4 @@ C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\o
 C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\obj\Debug\angel2015klService.pdb
 C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\bin\Facebook.dll
 C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\bin\Facebook.xml
+C:\Users\GeeWai\Documents\GitHub\Barterfly\Dot Net\WebApi_2\angel2015klService\obj\Debug\angel2015klService.csprojResolveAssemblyReference.cache
