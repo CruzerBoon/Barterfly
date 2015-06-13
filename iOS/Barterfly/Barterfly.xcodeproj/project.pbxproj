@@ -38,6 +38,8 @@
 		28E1A7F41B2C12E800805AD8 /* anonymous_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7F21B2C12E800805AD8 /* anonymous_dark.png */; };
 		28E1A7F51B2C12E800805AD8 /* anonymous_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7F31B2C12E800805AD8 /* anonymous_dark@2x.png */; };
 		28E1A7F91B2C275E00805AD8 /* NearbyMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7F81B2C275E00805AD8 /* NearbyMeViewController.m */; };
+		28E1A7FB1B2C27FC00805AD8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E1A7FA1B2C27FC00805AD8 /* MapKit.framework */; };
+		28E1A7FD1B2C29F300805AD8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E1A7FC1B2C29F300805AD8 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		28E1A7F31B2C12E800805AD8 /* anonymous_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "anonymous_dark@2x.png"; path = "Images/ExampleIcons/anonymous_dark@2x.png"; sourceTree = "<group>"; };
 		28E1A7F71B2C275E00805AD8 /* NearbyMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearbyMeViewController.h; path = Classes/ViewControllers/NearbyMe/NearbyMeViewController.h; sourceTree = "<group>"; };
 		28E1A7F81B2C275E00805AD8 /* NearbyMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearbyMeViewController.m; path = Classes/ViewControllers/NearbyMe/NearbyMeViewController.m; sourceTree = "<group>"; };
+		28E1A7FA1B2C27FC00805AD8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		28E1A7FC1B2C29F300805AD8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E1A7FD1B2C29F300805AD8 /* CoreLocation.framework in Frameworks */,
+				28E1A7FB1B2C27FC00805AD8 /* MapKit.framework in Frameworks */,
 				28E1A7B51B2BF72700805AD8 /* WindowsAzureMobileServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +204,8 @@
 		28E1A7AD1B2BF6B600805AD8 /* ExternalFramework */ = {
 			isa = PBXGroup;
 			children = (
+				28E1A7FC1B2C29F300805AD8 /* CoreLocation.framework */,
+				28E1A7FA1B2C27FC00805AD8 /* MapKit.framework */,
 				28E1A7B41B2BF72700805AD8 /* WindowsAzureMobileServices.framework */,
 				28E1A7B31B2BF71A00805AD8 /* SSKeychain */,
 			);

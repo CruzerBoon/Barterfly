@@ -11,6 +11,9 @@
 #import "AICommonUtils.h"
 
 @interface ProfileViewController : UIViewController <AzureMobileServiceDelegate>
+{
+    azureMobileService *mobileService;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 

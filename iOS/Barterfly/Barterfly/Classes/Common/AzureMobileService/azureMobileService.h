@@ -38,6 +38,7 @@
 -(NSMutableArray *)getDataFromTableWithName:(NSString *)tableName;
 -(NSMutableArray *)getFilteredDataFromTableWithName:(NSString *)tableName withFilter:(NSString *)filter;
 -(NSMutableArray *)getSortedDataUsingQueryFromTableWithName:(NSString *)tableName forColumnName:(NSString *)columnName isAscending:(BOOL)isAscending;
+-(NSMutableDictionary *)getSingleDataFromTableWithName:(NSString *)tableName forId:(NSString *)userId;
 
 /* INSERT DATA */
 
@@ -65,6 +66,8 @@
 -(void)azureMobileServiceDidFinishDeleteData;
 
 -(void)azureMobileServiceDidFinishGetData;
+
+-(void)azureMobileServiceDidFinishGetData:(id)object;
 
 -(void)azureMobileServiceDidSuccessAuthenticating;
 

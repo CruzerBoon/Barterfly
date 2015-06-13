@@ -57,7 +57,7 @@
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSString *tempSave = [user stringForKey:CLEAN_PASSWORD_ON_FIRST_LAUNCH];
     
-    NSLog(@"tempSave: %@", tempSave);
+    //NSLog(@"tempSave: %@", tempSave);
     
     if ([tempSave intValue] != 1)
     {

@@ -586,7 +586,7 @@
         <!--Nearby Me-->
         <scene sceneID="hNu-6h-cTS">
             <objects>
-                <viewController id="Q9T-RR-caY" sceneMemberID="viewController">
+                <viewController id="Q9T-RR-caY" customClass="NearbyMeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KUM-4f-jod"/>
                         <viewControllerLayoutGuide type="bottom" id="6mD-yD-NjD"/>
@@ -594,9 +594,17 @@
                     <view key="view" contentMode="scaleToFill" id="rzQ-FQ-4Lh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rr2-LH-X8h">
+                                <rect key="frame" x="0.0" y="-49" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nearby Me" id="PEr-06-DwE"/>
+                    <connections>
+                        <outlet property="mapVIew" destination="rr2-LH-X8h" id="ttx-aL-Uxz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJD-if-KPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -72,7 +72,7 @@
      {
          if (error)
          {
-             NSLog(@"Error getting data: %@", error.localizedDescription);
+             NSLog(@"Error getting data: %@", error);
          }
          else
          {
@@ -95,7 +95,7 @@
      {
          if (error)
          {
-             NSLog(@"Error getting data: %@", error.localizedDescription);
+             NSLog(@"Error getting data: %@", error);
          }
          else
          {
@@ -134,6 +134,31 @@
     
 }
 
+
+-(void)getSingleDataFromTableWithName:(NSString *)tableName forId:(NSString *)userId
+{
+    __block NSDictionary *tempdic;
+    
+    MSTable *table = [self createTableWithName:tableName];
+    
+    [table readWithId:userId completion:^(NSDictionary *dictionary, NSError *error){
+        if (error)
+        {
+            NSLog(@"Error getting data: %@", error);
+        }
+        else
+        {
+            NSLog(@"result: %@", dictionary);
+            tempdic = dictionary;
+            
+            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetData:)])
+            {
+                [self.delegate azureMobileServiceDidFinishGetData:tempdic];
+            }
+        }
+    }];
+    
+}
 
 /* INSERT DATA INTO TABLE */
 

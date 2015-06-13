@@ -34,14 +34,17 @@
 {
     [super viewDidAppear:animated];
     
-    azureAuthentication *mobileService = [[azureAuthentication alloc]init];
-    currentUser = [mobileService loadAuthenticationInfoWithUserForClient];
+//    azureAuthentication *mobileService = [[azureAuthentication alloc]init];
+//    currentUser = [mobileService loadAuthenticationInfoWithUserForClient];
     
+    [mobileService getSingleDataFromTableWithName:@"UserProfile" forId:@"0"];
 }
 
 -(void)initializeStartingVariable
 {
     [self setDesign];
+    
+    [self initAzureClient];
 }
 
 -(void)setDesign
@@ -61,6 +64,12 @@
     
     self.logoutButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12.0];
     self.logoutButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.logoutButton.titleLabel.text spacngValue:4.0 withUnderLine:NO];
+}
+
+-(void)initAzureClient
+{
+    mobileService = [[azureMobileService alloc]initAzureClient];
+    mobileService.delegate = self;
 }
 /*
  #pragma mark - Navigation
@@ -93,4 +102,14 @@
     [self presentViewController:rootVC animated:YES completion:nil];
     
 }
+
+#pragma mark - Azure Mobile Service Delegate
+
+-(void)azureMobileServiceDidFinishGetData:(id)object
+{
+    NSDictionary *dictionary = (NSDictionary *)object;
+    
+    NSLog(@"read: %@", dictionary);
+}
+
 @end
