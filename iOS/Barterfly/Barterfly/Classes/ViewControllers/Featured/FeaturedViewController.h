@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AICommonUtils.h"
 
 @interface FeaturedViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 

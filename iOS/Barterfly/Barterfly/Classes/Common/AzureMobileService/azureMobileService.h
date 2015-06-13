@@ -23,6 +23,10 @@
 
 -(instancetype)initAzureClient;
 
+/* LOG OUT CURRENT AZURE CLIENT */
+
+-(void)logoutAzureClient;
+
 
 /* AUTHENTICATE AND LOGIN THROUGH SOCIAL INTEGRATION */
 
@@ -63,5 +67,7 @@
 -(void)azureMobileServiceDidFinishGetData;
 
 -(void)azureMobileServiceDidSuccessAuthenticating;
+
+-(void)azureMobileServiceDidSuccessLogoutAzureClient;
 
 @end

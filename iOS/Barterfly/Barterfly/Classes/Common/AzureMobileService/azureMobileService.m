@@ -41,6 +41,10 @@
     return table;
 }
 
+-(void)logoutAzureClient
+{
+    [self.client logout];
+}
 
 /* AUTHENTICATE AND LOGIN THROUGH SOCIAL INTEGRATION */
 

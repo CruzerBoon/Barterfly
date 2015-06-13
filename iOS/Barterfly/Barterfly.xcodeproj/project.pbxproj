@@ -32,6 +32,12 @@
 		28E1A7E41B2BF96500805AD8 /* RequestTradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7E31B2BF96500805AD8 /* RequestTradeViewController.m */; };
 		28E1A7E71B2BF99500805AD8 /* ListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7E61B2BF99500805AD8 /* ListingViewController.m */; };
 		28E1A7EA1B2BFA7E00805AD8 /* CategoryListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7E91B2BFA7E00805AD8 /* CategoryListingViewController.m */; };
+		28E1A7ED1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7EB1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png */; };
+		28E1A7EE1B2C0CE000805AD8 /* dividing_line_horizontal_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7EC1B2C0CE000805AD8 /* dividing_line_horizontal_dark@2x.png */; };
+		28E1A7F11B2C0FB200805AD8 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7F01B2C0FB200805AD8 /* ItemDetailViewController.m */; };
+		28E1A7F41B2C12E800805AD8 /* anonymous_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7F21B2C12E800805AD8 /* anonymous_dark.png */; };
+		28E1A7F51B2C12E800805AD8 /* anonymous_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7F31B2C12E800805AD8 /* anonymous_dark@2x.png */; };
+		28E1A7F91B2C275E00805AD8 /* NearbyMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7F81B2C275E00805AD8 /* NearbyMeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +95,14 @@
 		28E1A7E61B2BF99500805AD8 /* ListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListingViewController.m; path = Classes/ViewControllers/Listing/ListingViewController.m; sourceTree = "<group>"; };
 		28E1A7E81B2BFA7E00805AD8 /* CategoryListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryListingViewController.h; path = Classes/ViewControllers/Listing/CategoryListingViewController.h; sourceTree = "<group>"; };
 		28E1A7E91B2BFA7E00805AD8 /* CategoryListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryListingViewController.m; path = Classes/ViewControllers/Listing/CategoryListingViewController.m; sourceTree = "<group>"; };
+		28E1A7EB1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dividing_line_horizontal_dark.png; path = Images/ExampleIcons/dividing_line_horizontal_dark.png; sourceTree = "<group>"; };
+		28E1A7EC1B2C0CE000805AD8 /* dividing_line_horizontal_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dividing_line_horizontal_dark@2x.png"; path = "Images/ExampleIcons/dividing_line_horizontal_dark@2x.png"; sourceTree = "<group>"; };
+		28E1A7EF1B2C0FB200805AD8 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemDetailViewController.h; path = Classes/ViewControllers/Listing/ItemDetailViewController.h; sourceTree = "<group>"; };
+		28E1A7F01B2C0FB200805AD8 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemDetailViewController.m; path = Classes/ViewControllers/Listing/ItemDetailViewController.m; sourceTree = "<group>"; };
+		28E1A7F21B2C12E800805AD8 /* anonymous_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anonymous_dark.png; path = Images/ExampleIcons/anonymous_dark.png; sourceTree = "<group>"; };
+		28E1A7F31B2C12E800805AD8 /* anonymous_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "anonymous_dark@2x.png"; path = "Images/ExampleIcons/anonymous_dark@2x.png"; sourceTree = "<group>"; };
+		28E1A7F71B2C275E00805AD8 /* NearbyMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearbyMeViewController.h; path = Classes/ViewControllers/NearbyMe/NearbyMeViewController.h; sourceTree = "<group>"; };
+		28E1A7F81B2C275E00805AD8 /* NearbyMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearbyMeViewController.m; path = Classes/ViewControllers/NearbyMe/NearbyMeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +225,7 @@
 		28E1A7B01B2BF6D300805AD8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				28E1A7F61B2C274400805AD8 /* NearbyMe */,
 				28E1A7D81B2BF81C00805AD8 /* RequestTrade */,
 				28E1A7D71B2BF81600805AD8 /* Profile */,
 				28E1A7D61B2BF80F00805AD8 /* Listing */,
@@ -257,6 +272,10 @@
 		28E1A7BE1B2BF74400805AD8 /* ExampleIcons */ = {
 			isa = PBXGroup;
 			children = (
+				28E1A7F21B2C12E800805AD8 /* anonymous_dark.png */,
+				28E1A7F31B2C12E800805AD8 /* anonymous_dark@2x.png */,
+				28E1A7EB1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png */,
+				28E1A7EC1B2C0CE000805AD8 /* dividing_line_horizontal_dark@2x.png */,
 				28E1A7BF1B2BF75000805AD8 /* barterCyan.png */,
 				28E1A7C01B2BF75000805AD8 /* barterCyan@2x.png */,
 				28E1A7C11B2BF75000805AD8 /* barterCyan@3x.png */,
@@ -290,6 +309,8 @@
 				28E1A7E61B2BF99500805AD8 /* ListingViewController.m */,
 				28E1A7E81B2BFA7E00805AD8 /* CategoryListingViewController.h */,
 				28E1A7E91B2BFA7E00805AD8 /* CategoryListingViewController.m */,
+				28E1A7EF1B2C0FB200805AD8 /* ItemDetailViewController.h */,
+				28E1A7F01B2C0FB200805AD8 /* ItemDetailViewController.m */,
 			);
 			name = Listing;
 			sourceTree = "<group>";
@@ -310,6 +331,15 @@
 				28E1A7E31B2BF96500805AD8 /* RequestTradeViewController.m */,
 			);
 			name = RequestTrade;
+			sourceTree = "<group>";
+		};
+		28E1A7F61B2C274400805AD8 /* NearbyMe */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7F71B2C275E00805AD8 /* NearbyMeViewController.h */,
+				28E1A7F81B2C275E00805AD8 /* NearbyMeViewController.m */,
+			);
+			name = NearbyMe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +391,7 @@
 				TargetAttributes = {
 					28E1A7431B2BCB9F00805AD8 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 9RLDP4WJTW;
 					};
 					28E1A75C1B2BCB9F00805AD8 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -392,8 +423,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E1A7F51B2C12E800805AD8 /* anonymous_dark@2x.png in Resources */,
 				28E1A7C51B2BF75000805AD8 /* barterCyan@3x.png in Resources */,
 				28E1A7C31B2BF75000805AD8 /* barterCyan.png in Resources */,
+				28E1A7EE1B2C0CE000805AD8 /* dividing_line_horizontal_dark@2x.png in Resources */,
+				28E1A7ED1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png in Resources */,
+				28E1A7F41B2C12E800805AD8 /* anonymous_dark.png in Resources */,
 				28E1A7C61B2BF75000805AD8 /* barterWide.png in Resources */,
 				28E1A7531B2BCB9F00805AD8 /* Main.storyboard in Resources */,
 				28E1A7581B2BCB9F00805AD8 /* LaunchScreen.xib in Resources */,
@@ -423,12 +458,14 @@
 				28E1A7EA1B2BFA7E00805AD8 /* CategoryListingViewController.m in Sources */,
 				28E1A74D1B2BCB9F00805AD8 /* AppDelegate.m in Sources */,
 				28E1A7E41B2BF96500805AD8 /* RequestTradeViewController.m in Sources */,
+				28E1A7F11B2C0FB200805AD8 /* ItemDetailViewController.m in Sources */,
 				28E1A7DB1B2BF8AE00805AD8 /* LoginViewController.m in Sources */,
 				28E1A7CC1B2BF76800805AD8 /* AICommonUtils.m in Sources */,
 				28E1A7E71B2BF99500805AD8 /* ListingViewController.m in Sources */,
 				28E1A7D31B2BF7DF00805AD8 /* azureAuthentication.m in Sources */,
 				28E1A7CD1B2BF76800805AD8 /* GBConnectionManager.m in Sources */,
 				28E1A74A1B2BCB9F00805AD8 /* main.m in Sources */,
+				28E1A7F91B2C275E00805AD8 /* NearbyMeViewController.m in Sources */,
 				28E1A7D01B2BF7AA00805AD8 /* azureMobileService.m in Sources */,
 				28E1A7E11B2BF93100805AD8 /* ProfileViewController.m in Sources */,
 				28E1A7DE1B2BF8ED00805AD8 /* FeaturedViewController.m in Sources */,
@@ -559,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Barterfly/ExternalFramework",
@@ -573,6 +611,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Barterfly/ExternalFramework",

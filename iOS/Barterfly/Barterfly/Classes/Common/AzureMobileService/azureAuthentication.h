@@ -37,7 +37,7 @@ typedef enum {
 -(MSUser *)loadAuthenticationInfoWithUserForClient;
 
 
--(void)deletePassword;
++(void)deletePassword;
 @end
 
 

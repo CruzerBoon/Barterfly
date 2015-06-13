@@ -39,4 +39,8 @@
 
 +(UIColor *)getAIColorWithRGB228:(CGFloat)alpha;
 +(UIColor *)getAIColorWithRGB192;
++(UIColor *)getAIColorWithRGB000:(CGFloat)alpha;
+
+
++(void)navigateToItemDetailsPageWithNavigationController:(UINavigationController *)navigationController;
 @end

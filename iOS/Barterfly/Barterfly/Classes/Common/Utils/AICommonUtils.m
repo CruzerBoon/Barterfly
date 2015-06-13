@@ -170,4 +170,17 @@
 {
     return [UIColor colorWithRed:192.0/255.0 green:192.0/255.0 blue:192.0/255.0 alpha:1.0];
 }
+
++(UIColor *)getAIColorWithRGB000:(CGFloat)alpha
+{
+    return [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:alpha];
+}
+
++(void)navigateToItemDetailsPageWithNavigationController:(UINavigationController *)navigationController
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *wrongpin = (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ItemDetailViewController"];
+    
+    [navigationController pushViewController:wrongpin animated:YES];
+}
 @end

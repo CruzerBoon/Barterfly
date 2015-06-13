@@ -16,12 +16,16 @@
 
 @implementation ProfileViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self initializeStartingVariable];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -33,9 +37,31 @@
     azureAuthentication *mobileService = [[azureAuthentication alloc]init];
     currentUser = [mobileService loadAuthenticationInfoWithUserForClient];
     
-    NSLog(@"id: %@, token: %@", currentUser.userId, currentUser.mobileServiceAuthenticationToken);
 }
 
+-(void)initializeStartingVariable
+{
+    [self setDesign];
+}
+
+-(void)setDesign
+{
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.height / 2;
+    self.profileImageView.clipsToBounds = YES;
+    
+    self.profileUserName.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:16.0];
+    self.profileUserName.attributedText = [AICommonUtils createStringWithSpacing:self.profileUserName.text spacngValue:2.0 withUnderLine:NO];
+    
+    self.creditBalance.font = [AICommonUtils getCustomTypeface:fontAvenirNextUltraLight ofSize:self.creditBalance.font.pointSize];
+    self.creditBalanceTitle.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:self.creditBalanceTitle.font.pointSize];
+    self.creditBalanceTitle.attributedText = [AICommonUtils createStringWithSpacing:self.creditBalanceTitle.text spacngValue:4.0 withUnderLine:NO];
+    
+    self.buyCreditButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12.0];
+    self.buyCreditButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.buyCreditButton.titleLabel.text spacngValue:4.0 withUnderLine:NO];
+    
+    self.logoutButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12.0];
+    self.logoutButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.logoutButton.titleLabel.text spacngValue:4.0 withUnderLine:NO];
+}
 /*
  #pragma mark - Navigation
  
@@ -46,4 +72,25 @@
  }
  */
 
+- (IBAction)BuyCredit:(id)sender
+{
+}
+
+- (IBAction)Logout:(id)sender
+{
+    azureAuthentication *authentication = [[azureAuthentication alloc]init];
+    
+    azureMobileService *azure = [[azureMobileService alloc]initAzureClient];
+    azure.delegate = self;
+    azure.client.currentUser  = [authentication loadAuthenticationInfoWithUserForClient];
+    
+    [azure logoutAzureClient];
+
+    
+    [azureAuthentication deletePassword];
+    
+    UIViewController *rootVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self presentViewController:rootVC animated:YES completion:nil];
+    
+}
 @end

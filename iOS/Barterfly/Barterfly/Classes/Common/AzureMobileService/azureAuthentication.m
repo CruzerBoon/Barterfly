@@ -52,6 +52,8 @@
     if (client.currentUser != nil)
         return;
     
+    
+    
     [client loginWithProvider:[self getNameForAuthenticationType:authenticationType] controller:target animated:YES completion:^(MSUser *user, NSError *error)
      {
          if (error)
@@ -98,7 +100,7 @@
 }
 
 
--(void)deletePassword
++(void)deletePassword
 {
     SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     

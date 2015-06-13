@@ -61,7 +61,7 @@
     
     if ([tempSave intValue] != 1)
     {
-        [azure deletePassword];
+        [azureAuthentication deletePassword];
         
         [user setObject:@"1" forKey:CLEAN_PASSWORD_ON_FIRST_LAUNCH];
         [user synchronize];

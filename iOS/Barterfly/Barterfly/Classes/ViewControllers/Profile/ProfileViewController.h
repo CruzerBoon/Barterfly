@@ -8,7 +8,24 @@
 
 #import <UIKit/UIKit.h>
 #import "azureMobileService.h"
+#import "AICommonUtils.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <AzureMobileServiceDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *profileUserName;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *creditBalance;
+@property (weak, nonatomic) IBOutlet UILabel *creditBalanceTitle;
+
+@property (weak, nonatomic) IBOutlet UIButton *buyCreditButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+
+
+- (IBAction)BuyCredit:(id)sender;
+- (IBAction)Logout:(id)sender;
 
 @end

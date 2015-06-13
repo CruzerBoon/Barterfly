@@ -82,12 +82,12 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 0;
+    return 5;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 0;
+    return 5;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +117,7 @@
         {
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"featuredCollectionView" forIndexPath:indexPath];
             
-            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 230, 135)];
+            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 250, 155)];
             imageView.image = [UIImage imageNamed:@"barterWide"];
             imageView.layer.cornerRadius = imageView.frame.size.height / 9;
             imageView.clipsToBounds = YES;
@@ -137,17 +137,19 @@
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"latestCollectionView" forIndexPath:indexPath];
             
             
-            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 100, 80, 45)];
+            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, 100, 45)];
             titleLabel.tag = 1;
             titleLabel.textAlignment = NSTextAlignmentCenter;
-            titleLabel.font = [UIFont systemFontOfSize:12];
-            titleLabel.numberOfLines = 2;
             titleLabel.text = @"FirstName\nLastName";
+            titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12];
+            titleLabel.textColor = [AICommonUtils getAIColorWithRGB000:0.4];
+            titleLabel.attributedText = [AICommonUtils createStringWithSpacing:titleLabel.text spacngValue:2.0 withUnderLine:NO];
+            titleLabel.numberOfLines = 2;
             [cell addSubview:titleLabel];
             [titleLabel sizeToFit];
             titleLabel.frame = CGRectMake((100 - titleLabel.frame.size.width) / 2, titleLabel.frame.origin.y, titleLabel.frame.size.width, titleLabel.frame.size.height);
             
-            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 80, 80)];
+            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
             imageView.image = [UIImage imageNamed:@"barterCyan"];
             imageView.layer.cornerRadius = imageView.frame.size.height / 7;
             imageView.clipsToBounds = YES;
@@ -165,17 +167,19 @@
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"mostPopularCollectionView" forIndexPath:indexPath];
             
             
-            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 100, 80, 45)];
+            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, 100, 45)];
             titleLabel.tag = 1;
             titleLabel.textAlignment = NSTextAlignmentCenter;
-            titleLabel.font = [UIFont systemFontOfSize:12];
-            titleLabel.numberOfLines = 2;
             titleLabel.text = @"FirstName\nLastName";
+            titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12];
+            titleLabel.textColor = [AICommonUtils getAIColorWithRGB000:0.4];
+            titleLabel.attributedText = [AICommonUtils createStringWithSpacing:titleLabel.text spacngValue:2.0 withUnderLine:NO];
+            titleLabel.numberOfLines = 2;
             [cell addSubview:titleLabel];
             [titleLabel sizeToFit];
             titleLabel.frame = CGRectMake((100 - titleLabel.frame.size.width) / 2, titleLabel.frame.origin.y, titleLabel.frame.size.width, titleLabel.frame.size.height);
             
-            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 80, 80)];
+            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
             imageView.image = [UIImage imageNamed:@"barterCyan"];
             imageView.layer.cornerRadius = imageView.frame.size.height / 7;
             imageView.clipsToBounds = YES;
@@ -190,12 +194,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell;
+    //UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
-    
-    
-    cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
+    [AICommonUtils navigateToItemDetailsPageWithNavigationController:self.navigationController];
 }
 
 
