@@ -14,6 +14,24 @@
 		28E1A7551B2BCB9F00805AD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7541B2BCB9F00805AD8 /* Images.xcassets */; };
 		28E1A7581B2BCB9F00805AD8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7561B2BCB9F00805AD8 /* LaunchScreen.xib */; };
 		28E1A7641B2BCB9F00805AD8 /* BarterflyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7631B2BCB9F00805AD8 /* BarterflyTests.m */; };
+		28E1A7B51B2BF72700805AD8 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E1A7B41B2BF72700805AD8 /* WindowsAzureMobileServices.framework */; };
+		28E1A7BA1B2BF72F00805AD8 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7B71B2BF72F00805AD8 /* SSKeychain.m */; };
+		28E1A7BB1B2BF72F00805AD8 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7B91B2BF72F00805AD8 /* SSKeychainQuery.m */; };
+		28E1A7BD1B2BF74000805AD8 /* facebookLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7BC1B2BF74000805AD8 /* facebookLogin.png */; };
+		28E1A7C31B2BF75000805AD8 /* barterCyan.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7BF1B2BF75000805AD8 /* barterCyan.png */; };
+		28E1A7C41B2BF75000805AD8 /* barterCyan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7C01B2BF75000805AD8 /* barterCyan@2x.png */; };
+		28E1A7C51B2BF75000805AD8 /* barterCyan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7C11B2BF75000805AD8 /* barterCyan@3x.png */; };
+		28E1A7C61B2BF75000805AD8 /* barterWide.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E1A7C21B2BF75000805AD8 /* barterWide.png */; };
+		28E1A7CC1B2BF76800805AD8 /* AICommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7C81B2BF76800805AD8 /* AICommonUtils.m */; };
+		28E1A7CD1B2BF76800805AD8 /* GBConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7CB1B2BF76800805AD8 /* GBConnectionManager.m */; };
+		28E1A7D01B2BF7AA00805AD8 /* azureMobileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7CF1B2BF7AA00805AD8 /* azureMobileService.m */; };
+		28E1A7D31B2BF7DF00805AD8 /* azureAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7D21B2BF7DF00805AD8 /* azureAuthentication.m */; };
+		28E1A7DB1B2BF8AE00805AD8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7DA1B2BF8AE00805AD8 /* LoginViewController.m */; };
+		28E1A7DE1B2BF8ED00805AD8 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7DD1B2BF8ED00805AD8 /* FeaturedViewController.m */; };
+		28E1A7E11B2BF93100805AD8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7E01B2BF93100805AD8 /* ProfileViewController.m */; };
+		28E1A7E41B2BF96500805AD8 /* RequestTradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7E31B2BF96500805AD8 /* RequestTradeViewController.m */; };
+		28E1A7E71B2BF99500805AD8 /* ListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7E61B2BF99500805AD8 /* ListingViewController.m */; };
+		28E1A7EA1B2BFA7E00805AD8 /* CategoryListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7E91B2BFA7E00805AD8 /* CategoryListingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +58,37 @@
 		28E1A75D1B2BCB9F00805AD8 /* BarterflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarterflyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E1A7621B2BCB9F00805AD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E1A7631B2BCB9F00805AD8 /* BarterflyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarterflyTests.m; sourceTree = "<group>"; };
+		28E1A7B41B2BF72700805AD8 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WindowsAzureMobileServices.framework; path = ExternalFramework/WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
+		28E1A7B61B2BF72F00805AD8 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = ExternalFramework/SSKeychain/SSKeychain.h; sourceTree = "<group>"; };
+		28E1A7B71B2BF72F00805AD8 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = ExternalFramework/SSKeychain/SSKeychain.m; sourceTree = "<group>"; };
+		28E1A7B81B2BF72F00805AD8 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychainQuery.h; path = ExternalFramework/SSKeychain/SSKeychainQuery.h; sourceTree = "<group>"; };
+		28E1A7B91B2BF72F00805AD8 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychainQuery.m; path = ExternalFramework/SSKeychain/SSKeychainQuery.m; sourceTree = "<group>"; };
+		28E1A7BC1B2BF74000805AD8 /* facebookLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebookLogin.png; path = Images/facebookLogin.png; sourceTree = "<group>"; };
+		28E1A7BF1B2BF75000805AD8 /* barterCyan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barterCyan.png; path = Images/ExampleIcons/barterCyan.png; sourceTree = "<group>"; };
+		28E1A7C01B2BF75000805AD8 /* barterCyan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "barterCyan@2x.png"; path = "Images/ExampleIcons/barterCyan@2x.png"; sourceTree = "<group>"; };
+		28E1A7C11B2BF75000805AD8 /* barterCyan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "barterCyan@3x.png"; path = "Images/ExampleIcons/barterCyan@3x.png"; sourceTree = "<group>"; };
+		28E1A7C21B2BF75000805AD8 /* barterWide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barterWide.png; path = Images/ExampleIcons/barterWide.png; sourceTree = "<group>"; };
+		28E1A7C71B2BF76800805AD8 /* AICommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AICommonUtils.h; path = Classes/Common/Utils/AICommonUtils.h; sourceTree = "<group>"; };
+		28E1A7C81B2BF76800805AD8 /* AICommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AICommonUtils.m; path = Classes/Common/Utils/AICommonUtils.m; sourceTree = "<group>"; };
+		28E1A7C91B2BF76800805AD8 /* AIEnumCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIEnumCollection.h; path = Classes/Common/Utils/AIEnumCollection.h; sourceTree = "<group>"; };
+		28E1A7CA1B2BF76800805AD8 /* GBConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBConnectionManager.h; path = Classes/Common/Utils/GBConnectionManager.h; sourceTree = "<group>"; };
+		28E1A7CB1B2BF76800805AD8 /* GBConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBConnectionManager.m; path = Classes/Common/Utils/GBConnectionManager.m; sourceTree = "<group>"; };
+		28E1A7CE1B2BF7AA00805AD8 /* azureMobileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = azureMobileService.h; path = Classes/Common/AzureMobileService/azureMobileService.h; sourceTree = "<group>"; };
+		28E1A7CF1B2BF7AA00805AD8 /* azureMobileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = azureMobileService.m; path = Classes/Common/AzureMobileService/azureMobileService.m; sourceTree = "<group>"; };
+		28E1A7D11B2BF7DF00805AD8 /* azureAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = azureAuthentication.h; path = Classes/Common/AzureMobileService/azureAuthentication.h; sourceTree = "<group>"; };
+		28E1A7D21B2BF7DF00805AD8 /* azureAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = azureAuthentication.m; path = Classes/Common/AzureMobileService/azureAuthentication.m; sourceTree = "<group>"; };
+		28E1A7D91B2BF8AE00805AD8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Classes/ViewControllers/Login/LoginViewController.h; sourceTree = "<group>"; };
+		28E1A7DA1B2BF8AE00805AD8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Classes/ViewControllers/Login/LoginViewController.m; sourceTree = "<group>"; };
+		28E1A7DC1B2BF8ED00805AD8 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeaturedViewController.h; path = Classes/ViewControllers/Featured/FeaturedViewController.h; sourceTree = "<group>"; };
+		28E1A7DD1B2BF8ED00805AD8 /* FeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeaturedViewController.m; path = Classes/ViewControllers/Featured/FeaturedViewController.m; sourceTree = "<group>"; };
+		28E1A7DF1B2BF93100805AD8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Classes/ViewControllers/Profile/ProfileViewController.h; sourceTree = "<group>"; };
+		28E1A7E01B2BF93100805AD8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Classes/ViewControllers/Profile/ProfileViewController.m; sourceTree = "<group>"; };
+		28E1A7E21B2BF96500805AD8 /* RequestTradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestTradeViewController.h; path = Classes/ViewControllers/RequestTrade/RequestTradeViewController.h; sourceTree = "<group>"; };
+		28E1A7E31B2BF96500805AD8 /* RequestTradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestTradeViewController.m; path = Classes/ViewControllers/RequestTrade/RequestTradeViewController.m; sourceTree = "<group>"; };
+		28E1A7E51B2BF99500805AD8 /* ListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListingViewController.h; path = Classes/ViewControllers/Listing/ListingViewController.h; sourceTree = "<group>"; };
+		28E1A7E61B2BF99500805AD8 /* ListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListingViewController.m; path = Classes/ViewControllers/Listing/ListingViewController.m; sourceTree = "<group>"; };
+		28E1A7E81B2BFA7E00805AD8 /* CategoryListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryListingViewController.h; path = Classes/ViewControllers/Listing/CategoryListingViewController.h; sourceTree = "<group>"; };
+		28E1A7E91B2BFA7E00805AD8 /* CategoryListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryListingViewController.m; path = Classes/ViewControllers/Listing/CategoryListingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E1A7B51B2BF72700805AD8 /* WindowsAzureMobileServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +136,7 @@
 				28E1A74E1B2BCB9F00805AD8 /* ViewController.h */,
 				28E1A74F1B2BCB9F00805AD8 /* ViewController.m */,
 				28E1A7511B2BCB9F00805AD8 /* Main.storyboard */,
+				28E1A7AC1B2BF6AC00805AD8 /* Classes */,
 				28E1A7541B2BCB9F00805AD8 /* Images.xcassets */,
 				28E1A7561B2BCB9F00805AD8 /* LaunchScreen.xib */,
 				28E1A7471B2BCB9F00805AD8 /* Supporting Files */,
@@ -96,6 +147,8 @@
 		28E1A7471B2BCB9F00805AD8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28E1A7AE1B2BF6C100805AD8 /* Image */,
+				28E1A7AD1B2BF6B600805AD8 /* ExternalFramework */,
 				28E1A7481B2BCB9F00805AD8 /* Info.plist */,
 				28E1A7491B2BCB9F00805AD8 /* main.m */,
 			);
@@ -117,6 +170,146 @@
 				28E1A7621B2BCB9F00805AD8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28E1A7AC1B2BF6AC00805AD8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7B01B2BF6D300805AD8 /* ViewController */,
+				28E1A7AF1B2BF6CD00805AD8 /* Common */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		28E1A7AD1B2BF6B600805AD8 /* ExternalFramework */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7B41B2BF72700805AD8 /* WindowsAzureMobileServices.framework */,
+				28E1A7B31B2BF71A00805AD8 /* SSKeychain */,
+			);
+			name = ExternalFramework;
+			sourceTree = "<group>";
+		};
+		28E1A7AE1B2BF6C100805AD8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7BE1B2BF74400805AD8 /* ExampleIcons */,
+				28E1A7BC1B2BF74000805AD8 /* facebookLogin.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		28E1A7AF1B2BF6CD00805AD8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7B21B2BF6F400805AD8 /* Utils */,
+				28E1A7B11B2BF6E400805AD8 /* AzureMobileService */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		28E1A7B01B2BF6D300805AD8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7D81B2BF81C00805AD8 /* RequestTrade */,
+				28E1A7D71B2BF81600805AD8 /* Profile */,
+				28E1A7D61B2BF80F00805AD8 /* Listing */,
+				28E1A7D51B2BF80400805AD8 /* Featured */,
+				28E1A7D41B2BF80000805AD8 /* Login */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		28E1A7B11B2BF6E400805AD8 /* AzureMobileService */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7CE1B2BF7AA00805AD8 /* azureMobileService.h */,
+				28E1A7CF1B2BF7AA00805AD8 /* azureMobileService.m */,
+				28E1A7D11B2BF7DF00805AD8 /* azureAuthentication.h */,
+				28E1A7D21B2BF7DF00805AD8 /* azureAuthentication.m */,
+			);
+			name = AzureMobileService;
+			sourceTree = "<group>";
+		};
+		28E1A7B21B2BF6F400805AD8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7C71B2BF76800805AD8 /* AICommonUtils.h */,
+				28E1A7C81B2BF76800805AD8 /* AICommonUtils.m */,
+				28E1A7C91B2BF76800805AD8 /* AIEnumCollection.h */,
+				28E1A7CA1B2BF76800805AD8 /* GBConnectionManager.h */,
+				28E1A7CB1B2BF76800805AD8 /* GBConnectionManager.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		28E1A7B31B2BF71A00805AD8 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7B61B2BF72F00805AD8 /* SSKeychain.h */,
+				28E1A7B71B2BF72F00805AD8 /* SSKeychain.m */,
+				28E1A7B81B2BF72F00805AD8 /* SSKeychainQuery.h */,
+				28E1A7B91B2BF72F00805AD8 /* SSKeychainQuery.m */,
+			);
+			name = SSKeychain;
+			sourceTree = "<group>";
+		};
+		28E1A7BE1B2BF74400805AD8 /* ExampleIcons */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7BF1B2BF75000805AD8 /* barterCyan.png */,
+				28E1A7C01B2BF75000805AD8 /* barterCyan@2x.png */,
+				28E1A7C11B2BF75000805AD8 /* barterCyan@3x.png */,
+				28E1A7C21B2BF75000805AD8 /* barterWide.png */,
+			);
+			name = ExampleIcons;
+			sourceTree = "<group>";
+		};
+		28E1A7D41B2BF80000805AD8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7D91B2BF8AE00805AD8 /* LoginViewController.h */,
+				28E1A7DA1B2BF8AE00805AD8 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		28E1A7D51B2BF80400805AD8 /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7DC1B2BF8ED00805AD8 /* FeaturedViewController.h */,
+				28E1A7DD1B2BF8ED00805AD8 /* FeaturedViewController.m */,
+			);
+			name = Featured;
+			sourceTree = "<group>";
+		};
+		28E1A7D61B2BF80F00805AD8 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7E51B2BF99500805AD8 /* ListingViewController.h */,
+				28E1A7E61B2BF99500805AD8 /* ListingViewController.m */,
+				28E1A7E81B2BFA7E00805AD8 /* CategoryListingViewController.h */,
+				28E1A7E91B2BFA7E00805AD8 /* CategoryListingViewController.m */,
+			);
+			name = Listing;
+			sourceTree = "<group>";
+		};
+		28E1A7D71B2BF81600805AD8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7DF1B2BF93100805AD8 /* ProfileViewController.h */,
+				28E1A7E01B2BF93100805AD8 /* ProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		28E1A7D81B2BF81C00805AD8 /* RequestTrade */ = {
+			isa = PBXGroup;
+			children = (
+				28E1A7E21B2BF96500805AD8 /* RequestTradeViewController.h */,
+				28E1A7E31B2BF96500805AD8 /* RequestTradeViewController.m */,
+			);
+			name = RequestTrade;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +392,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E1A7C51B2BF75000805AD8 /* barterCyan@3x.png in Resources */,
+				28E1A7C31B2BF75000805AD8 /* barterCyan.png in Resources */,
+				28E1A7C61B2BF75000805AD8 /* barterWide.png in Resources */,
 				28E1A7531B2BCB9F00805AD8 /* Main.storyboard in Resources */,
 				28E1A7581B2BCB9F00805AD8 /* LaunchScreen.xib in Resources */,
+				28E1A7C41B2BF75000805AD8 /* barterCyan@2x.png in Resources */,
 				28E1A7551B2BCB9F00805AD8 /* Images.xcassets in Resources */,
+				28E1A7BD1B2BF74000805AD8 /* facebookLogin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +418,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E1A7501B2BCB9F00805AD8 /* ViewController.m in Sources */,
+				28E1A7BB1B2BF72F00805AD8 /* SSKeychainQuery.m in Sources */,
+				28E1A7BA1B2BF72F00805AD8 /* SSKeychain.m in Sources */,
+				28E1A7EA1B2BFA7E00805AD8 /* CategoryListingViewController.m in Sources */,
 				28E1A74D1B2BCB9F00805AD8 /* AppDelegate.m in Sources */,
+				28E1A7E41B2BF96500805AD8 /* RequestTradeViewController.m in Sources */,
+				28E1A7DB1B2BF8AE00805AD8 /* LoginViewController.m in Sources */,
+				28E1A7CC1B2BF76800805AD8 /* AICommonUtils.m in Sources */,
+				28E1A7E71B2BF99500805AD8 /* ListingViewController.m in Sources */,
+				28E1A7D31B2BF7DF00805AD8 /* azureAuthentication.m in Sources */,
+				28E1A7CD1B2BF76800805AD8 /* GBConnectionManager.m in Sources */,
 				28E1A74A1B2BCB9F00805AD8 /* main.m in Sources */,
+				28E1A7D01B2BF7AA00805AD8 /* azureMobileService.m in Sources */,
+				28E1A7E11B2BF93100805AD8 /* ProfileViewController.m in Sources */,
+				28E1A7DE1B2BF8ED00805AD8 /* FeaturedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +559,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Barterfly/ExternalFramework",
+				);
 				INFOPLIST_FILE = Barterfly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +573,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Barterfly/ExternalFramework",
+				);
 				INFOPLIST_FILE = Barterfly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,6 +636,7 @@
 				28E1A7691B2BCB9F00805AD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28E1A76A1B2BCB9F00805AD8 /* Build configuration list for PBXNativeTarget "BarterflyTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +645,7 @@
 				28E1A76C1B2BCB9F00805AD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

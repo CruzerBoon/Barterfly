@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+#import "azureAuthentication.h"
+
+#define CLEAN_PASSWORD_ON_FIRST_LAUNCH @"CLEAN_PASSWORD_ON_FIRST_LAUNCH"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self checkIfUserHasToken];
+    
     return YES;
 }
 
@@ -41,5 +48,38 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+- (void)checkIfUserHasToken
+{
+    azureAuthentication *azure = [[azureAuthentication alloc]init];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *tempSave = [user stringForKey:CLEAN_PASSWORD_ON_FIRST_LAUNCH];
+    
+    NSLog(@"tempSave: %@", tempSave);
+    
+    if ([tempSave intValue] != 1)
+    {
+        [azure deletePassword];
+        
+        [user setObject:@"1" forKey:CLEAN_PASSWORD_ON_FIRST_LAUNCH];
+        [user synchronize];
+    }
+    
+    if ([azure loadAuthenticationInfoWithUserForClient] != nil)
+    {
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateInitialViewController];
+    }
+    else
+    {
+        UIViewController *rootVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:rootVC];
+        navigation.navigationBar.hidden = YES;
+        
+        self.window.rootViewController = navigation;
+    }
+}
+
 
 @end
