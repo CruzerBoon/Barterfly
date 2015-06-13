@@ -23,9 +23,10 @@ namespace angel2015klService.Models
 
         public angel2015klContext() : base(connectionStringName)
         {
-        } 
+        }
 
         public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

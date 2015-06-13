@@ -20,7 +20,11 @@ namespace angel2015klService
 
             // To display errors in the browser during development, uncomment the following
             // line. Comment it out again when you deploy your service for production use.
-            // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+
+#if(DEBUG)
+            config.SetIsHosted(true);
+#endif
             
             Database.SetInitializer(new angel2015klInitializer());
         }
