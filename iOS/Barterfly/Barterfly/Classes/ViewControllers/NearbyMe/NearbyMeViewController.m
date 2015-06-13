@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -35,10 +37,10 @@
 
 - (void)initializeMap
 {
-    self.mapVIew.delegate = self;
-    self.mapVIew.showsUserLocation = YES;
-    self.mapVIew.showsBuildings = YES;
-    self.mapVIew.showsPointsOfInterest = YES;
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.mapView.showsBuildings = YES;
+    self.mapView.showsPointsOfInterest = YES;
     
     
     //initialize CLLocation Manager
@@ -55,8 +57,13 @@
 
     coord = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
     
-    MKMapCamera *camera = [MKMapCamera cameraLookingAtCenterCoordinate:coord fromEyeCoordinate:coord eyeAltitude:2000];
-    [self.mapVIew setCamera:camera animated:YES];
+    MKMapCamera *camera = [MKMapCamera cameraLookingAtCenterCoordinate:coord fromEyeCoordinate:coord eyeAltitude:5000];
+    [self.mapView setCamera:camera animated:YES];
+    
+    MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
+    self.navigationItem.rightBarButtonItem = buttonItem;
+    
+    [self addAnnotation];
 }
 
 /*
@@ -68,6 +75,27 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)showUserCurrentLocation:(id)sender
+{
+    
+}
+
+-(void)addAnnotation
+{
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
+    CLLocationCoordinate2D coord;
+    
+    coord = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude + 0.0020, self.locationManager.location.coordinate.longitude + 0.0020);
+    
+    MKPointAnnotation *LocationAnnotation = [[MKPointAnnotation alloc]init];
+    LocationAnnotation.coordinate = coord;
+    LocationAnnotation.title = @"Trader";
+    
+    
+    [self.mapView addAnnotation:LocationAnnotation];
+}
 
 #pragma mark - core location manager delegate
 
@@ -86,6 +114,9 @@
     {
         errorType = @"Location Service: Access denied, please enable location service in phone settings to find nearby trades";
         
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Privacy Settings Disabled" message:errorType delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
     }
     else if (status == kCLAuthorizationStatusNotDetermined)
     {
@@ -96,8 +127,44 @@
     
     NSLog(@"CLLocationManager: %@", errorType);
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Privacy Settings Disabled" message:errorType delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+}
+
+
+
+#pragma mark - MKMapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if (![annotation isKindOfClass:[MKUserLocation class]])
+    {
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"merchantMarker"];
+        annotationView.canShowCallout = YES;
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        annotationView.image = [UIImage imageNamed:@"map_pin"];
+        annotationView.centerOffset = CGPointMake(0, -20); // To rectify the view's position off set due to the size of image
+        
+        // Setup merchant image view
+        UIImageView *merchantImageView = [[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 26, 26)];
+        merchantImageView.layer.cornerRadius = merchantImageView.frame.size.height / 2;
+        merchantImageView.clipsToBounds = YES;
+        merchantImageView.image = [UIImage imageNamed:@"barterCyan"];
+        
+        // Add merchant image view to pin
+        [annotationView addSubview:merchantImageView];
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    if (![view.annotation isKindOfClass:[MKUserLocation class]])
+    {
+        [AICommonUtils navigateToItemDetailsPageWithNavigationController:self.navigationController forDictionary:nil];
+    }
 }
 
 @end

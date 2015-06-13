@@ -14,7 +14,8 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -31,6 +32,9 @@
     self.LoginButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:16.0];
     
     self.LoginButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.LoginButton.titleLabel.text spacngValue:4.0 withUnderLine:NO];
+    
+    self.iconImageView.layer.cornerRadius = self.iconImageView.frame.size.height / 2;
+    self.iconImageView.clipsToBounds = YES;
 }
 
 /*

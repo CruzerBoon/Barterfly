@@ -29,6 +29,10 @@
     if (self)
     {
         self.client = [MSClient clientWithApplicationURLString:APP_URL applicationKey:APP_KEY];
+        
+        azureAuthentication *auth = [[azureAuthentication alloc]init];
+
+        self.client.currentUser = [auth loadAuthenticationInfoWithUserForClient];
     }
     
     return self;
@@ -60,9 +64,11 @@
 }
 
 
+
+
 /* GET DATA FROM TABLE */
 
--(NSMutableArray *)getDataFromTableWithName:(NSString *)tableName
+-(void)getDataFromTableWithName:(NSString *)tableName
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc]init];
     
@@ -73,14 +79,24 @@
          if (error)
          {
              NSLog(@"Error getting data: %@", error);
+             
+             if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFailWithError:)])
+             {
+                 [self.delegate azureMobileServiceDidFailWithError:error];
+             }
          }
          else
          {
+             NSLog(@"result: %@", result.items);
+             
              [tempArray addObjectsFromArray:result.items];
+             
+             if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetDataForList:)])
+             {
+                 [self.delegate azureMobileServiceDidFinishGetDataForList:tempArray];
+             }
          }
      }];
-    
-    return tempArray;
 }
 
 -(NSMutableArray *)getFilteredDataFromTableWithName:(NSString *)tableName withFilter:(NSString *)filter
@@ -145,19 +161,80 @@
         if (error)
         {
             NSLog(@"Error getting data: %@", error);
+            
+            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFailWithError:)])
+            {
+                [self.delegate azureMobileServiceDidFailWithError:error];
+            }
         }
         else
         {
             NSLog(@"result: %@", dictionary);
             tempdic = dictionary;
             
-            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetData:)])
+            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetDataForSingleItem:)])
             {
-                [self.delegate azureMobileServiceDidFinishGetData:tempdic];
+                [self.delegate azureMobileServiceDidFinishGetDataForSingleItem:tempdic];
             }
         }
     }];
     
+}
+
+-(void)getSingleItemUsingAPIForTableWithName:(NSString *)tableName queryString:(NSString *)queryString
+{
+    MSTable *table = [self createTableWithName:tableName];
+    
+    [table readWithQueryString:queryString completion:^(MSQueryResult *result, NSError *error)
+    {
+        if (error)
+        {
+            NSLog(@"Error getting data: %@", error);
+            
+            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFailWithError:)])
+            {
+                [self.delegate azureMobileServiceDidFailWithError:error];
+            }
+        }
+        else
+        {
+            NSLog(@"result: %@", result.items);
+            
+            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetDataForSingleItem:)])
+            {
+                [self.delegate azureMobileServiceDidFinishGetDataForSingleItem:result.items];
+            }
+        }
+    }];
+}
+
+-(void)getFullListingItemForTableWithName:(NSString *)tableName
+{
+    NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+    
+    NSString *stringapi = [NSString stringWithFormat:@"/%@", tableName];
+    
+    [self.client invokeAPI:stringapi body:nil HTTPMethod:@"GET" parameters:nil headers:nil completion:^(id result, NSHTTPURLResponse *response, NSError *error)
+    {
+        if (error)
+        {
+            NSLog(@"Error: %@", error);
+            
+            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFailWithError:)])
+            {
+                [self.delegate azureMobileServiceDidFailWithError:error];
+            }
+        }
+        else
+        {
+            [tempArray addObjectsFromArray:(NSArray *)result];
+            
+            if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetDataForList:)])
+            {
+                [self.delegate azureMobileServiceDidFinishGetDataForList:tempArray];
+            }
+        }
+    }];
 }
 
 /* INSERT DATA INTO TABLE */
@@ -228,5 +305,6 @@
         [self.delegate azureMobileServiceDidSuccessAuthenticating];
     }
 }
+
 
 @end

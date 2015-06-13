@@ -9,7 +9,9 @@
 #import "FeaturedViewController.h"
 
 @interface FeaturedViewController ()
-
+{
+    azureMobileService *mobileService;
+}
 @end
 
 @implementation FeaturedViewController
@@ -22,6 +24,20 @@
     [self initializeStartingVariable];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self getData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self dismissLoadingScreen];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -30,6 +46,17 @@
 
 -(void)initializeStartingVariable
 {
+    self.popularSeeMoreButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12];
+    self.popularSeeMoreButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.popularSeeMoreButton.titleLabel.text spacngValue:0 withUnderLine:NO];
+    
+    self.latestSeeMoreButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12];
+    self.latestSeeMoreButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.latestSeeMoreButton.titleLabel.text spacngValue:0 withUnderLine:NO];
+    
+    self.latestTitleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.latestTitleLabel.text spacngValue:0 withUnderLine:NO];
+    self.popularTitleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.popularTitleLabel.text spacngValue:0 withUnderLine:NO];
+    self.latestTitleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:self.latestTitleLabel.font.pointSize];
+    self.popularTitleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:self.popularTitleLabel.font.pointSize];
+    
     self.featuredCollectionView.delegate = self;
     self.featuredCollectionView.dataSource = self;
     
@@ -52,7 +79,39 @@
     
     //[self.mostPopularCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"mostPopularCollectionViewHeader"];
     
+    [self initAzureClient];
+}
+
+-(void)initAzureClient
+{
+    //azureAuthentication *auth = [[azureAuthentication alloc]init];
     
+    mobileService = [[azureMobileService alloc]initAzureClient];
+    mobileService.delegate = self;
+    //mobileService.client.currentUser = [auth loadAuthenticationInfoWithUserForClient];
+}
+
+-(void)getData
+{
+ 
+//   [mobileService getDataFromTableWithName:[AICommonUtils getAzureTableNameForTable:tableTradeItemImage]];
+    
+    [mobileService getFullListingItemForTableWithName:[AICommonUtils getAzureTableNameForTable:tableAllTradeItem]];
+    
+    [self createLoadingScreen];
+}
+
+-(void)getItemImage:(NSMutableArray *)array
+{
+    NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+    tempdic = [[array objectAtIndex:0] mutableCopy];
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    [dic setObject:[tempdic objectForKey:@"id"] forKey:@"id"];
+    
+    [mobileService getSingleItemUsingAPIForTableWithName:[AICommonUtils getAzureTableNameForTable:tableTradeItemImage] queryString:[NSString stringWithFormat:@"tradeItemId=%@", [tempdic objectForKey:@"id"]]];
+    
+    [self createLoadingScreen];
 }
 
 /*
@@ -64,6 +123,31 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+
+
+-(void)createLoadingScreen
+{
+    if (!screen)
+    {
+        screen = [[LoadingScreen alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) forSuperView:self.view atTarget:self];
+        screen.backgroundColor = [AICommonUtils getAIColorWithRGB0_32_44:0.4];
+        [self.view addSubview:screen];
+    }
+}
+
+-(void)dismissLoadingScreen
+{
+    if (screen)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            screen.alpha = 0;
+        }completion:^(BOOL finished){
+            [screen removeFromSuperview];
+            screen = nil;
+        }];
+    }
+}
 
 
 /********** UICollectionView **********/
@@ -82,12 +166,12 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 5;
+    return 0;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 5;
+    return 0;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +201,7 @@
         {
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"featuredCollectionView" forIndexPath:indexPath];
             
-            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 250, 155)];
+            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 0, 230, 155)];
             imageView.image = [UIImage imageNamed:@"barterWide"];
             imageView.layer.cornerRadius = imageView.frame.size.height / 9;
             imageView.clipsToBounds = YES;
@@ -137,19 +221,19 @@
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"latestCollectionView" forIndexPath:indexPath];
             
             
-            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, 100, 45)];
+            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 90, 80, 45)];
             titleLabel.tag = 1;
             titleLabel.textAlignment = NSTextAlignmentCenter;
             titleLabel.text = @"FirstName\nLastName";
-            titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12];
+            titleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12];
             titleLabel.textColor = [AICommonUtils getAIColorWithRGB000:0.4];
-            titleLabel.attributedText = [AICommonUtils createStringWithSpacing:titleLabel.text spacngValue:2.0 withUnderLine:NO];
+            titleLabel.attributedText = [AICommonUtils createStringWithSpacing:titleLabel.text spacngValue:0 withUnderLine:NO];
             titleLabel.numberOfLines = 2;
             [cell addSubview:titleLabel];
             [titleLabel sizeToFit];
             titleLabel.frame = CGRectMake((100 - titleLabel.frame.size.width) / 2, titleLabel.frame.origin.y, titleLabel.frame.size.width, titleLabel.frame.size.height);
             
-            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 0, 80, 80)];
             imageView.image = [UIImage imageNamed:@"barterCyan"];
             imageView.layer.cornerRadius = imageView.frame.size.height / 7;
             imageView.clipsToBounds = YES;
@@ -167,19 +251,19 @@
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"mostPopularCollectionView" forIndexPath:indexPath];
             
             
-            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, 100, 45)];
+            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 90, 80, 45)];
             titleLabel.tag = 1;
             titleLabel.textAlignment = NSTextAlignmentCenter;
             titleLabel.text = @"FirstName\nLastName";
-            titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12];
+            titleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12];
             titleLabel.textColor = [AICommonUtils getAIColorWithRGB000:0.4];
-            titleLabel.attributedText = [AICommonUtils createStringWithSpacing:titleLabel.text spacngValue:2.0 withUnderLine:NO];
+            titleLabel.attributedText = [AICommonUtils createStringWithSpacing:titleLabel.text spacngValue:0 withUnderLine:NO];
             titleLabel.numberOfLines = 2;
             [cell addSubview:titleLabel];
             [titleLabel sizeToFit];
             titleLabel.frame = CGRectMake((100 - titleLabel.frame.size.width) / 2, titleLabel.frame.origin.y, titleLabel.frame.size.width, titleLabel.frame.size.height);
             
-            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 0, 80, 80)];
             imageView.image = [UIImage imageNamed:@"barterCyan"];
             imageView.layer.cornerRadius = imageView.frame.size.height / 7;
             imageView.clipsToBounds = YES;
@@ -196,7 +280,7 @@
 {
     //UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
-    [AICommonUtils navigateToItemDetailsPageWithNavigationController:self.navigationController];
+    [AICommonUtils navigateToItemDetailsPageWithNavigationController:self.navigationController forDictionary:nil];
 }
 
 
@@ -217,5 +301,35 @@
         
     }
 }
+
+
+#pragma mark - Azure Mobile Service Delegate
+
+-(void)azureMobileServiceDidFinishGetDataForList:(id)object
+{
+    NSMutableArray *tempArray = (NSMutableArray *)object;
+    
+    NSLog(@"result: %@", tempArray);
+    
+    [self dismissLoadingScreen];
+    
+    [self getItemImage:tempArray];
+}
+
+-(void)azureMobileServiceDidFinishGetDataForSingleItem:(id)object
+{
+    NSDictionary *tempdic = (NSDictionary *)object;
+    
+    NSLog(@"result: %@", tempdic);
+    
+    [self dismissLoadingScreen];
+}
+
+
+-(void)azureMobileServiceDidFailWithError:(NSError *)error
+{
+    [self dismissLoadingScreen];
+}
+
 
 @end

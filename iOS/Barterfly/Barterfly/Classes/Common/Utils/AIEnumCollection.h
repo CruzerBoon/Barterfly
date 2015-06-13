@@ -1,29 +1,26 @@
 //
 //  AIEnumCollection.h
-//  BalloonPopper
+//  
 //
 //  Created by Mun Fai Leong on 3/8/15.
-//  Copyright (c) 2015 myAppIndustry. All rights reserved.
+//  Copyright (c) 2015 angelhack. All rights reserved.
 //
 
 
 typedef enum
 {
-    GameCardCut,  //0
-    GameCardAddFiveSecond, //1
-    GameCardAddTenSecond, //2
-    GameCardReverse, //3
-    GameCardSkip, //4
-    GameCardToSixtySecond, //5
-    GameCardToThirtySecond, //6
-    GameCardToZeroSecond, //7
-    GameCardDrawOne, //8
-    GameCardDrawTwo, //9
-    GameCardTradeHand, //10
-    GameCardDoublePlay, //11
-    GameCardPop //12
-    
-} AIGameCardName;
+    tableTradeItem,  //0
+    tableTradeItemImage, //1
+    tableTradeItemComment,
+    tableTradeItemLike,
+    tableTradeItemWishList,
+    tableRequestItem,
+    tableRequestItemImage,
+    tableRequestItemLike,
+    tableRequestItemComment,
+    tableAllRequestItem,
+    tableAllTradeItem
+} azureTableName;
 
 typedef enum {
     fontZapfino,
@@ -32,7 +29,15 @@ typedef enum {
     fontAvenirNextUltraLight,
     fontAvenirNextUltraLightItalic,
     fontAvenirBook,
-    fontAvenirLight
+    fontAvenirLight,
+    fontTrebuchetMS,
+    fontTrebuchetMSBoldItalic,
+    fontTrebuchetMSBold,
+    fontTrebuchetMSItalic,
+    fontHelveticaNeue,
+    fontHelveticaNeueItalic,
+    fontHelveticaNeueLight,
+    fontHelveticaNeueThin
 }AIFontFamily;
 
 typedef enum {

@@ -35,11 +35,12 @@
 
 /* GET DATA */
 
--(NSMutableArray *)getDataFromTableWithName:(NSString *)tableName;
+-(void)getDataFromTableWithName:(NSString *)tableName;
 -(NSMutableArray *)getFilteredDataFromTableWithName:(NSString *)tableName withFilter:(NSString *)filter;
 -(NSMutableArray *)getSortedDataUsingQueryFromTableWithName:(NSString *)tableName forColumnName:(NSString *)columnName isAscending:(BOOL)isAscending;
--(NSMutableDictionary *)getSingleDataFromTableWithName:(NSString *)tableName forId:(NSString *)userId;
-
+-(void)getSingleDataFromTableWithName:(NSString *)tableName forId:(NSString *)userId;
+-(void)getFullListingItemForTableWithName:(NSString *)tableName;
+-(void)getSingleItemUsingAPIForTableWithName:(NSString *)tableName queryString:(NSString *)queryString;
 /* INSERT DATA */
 
 -(void)insertDataIntoTableWithName:(NSString *)tableName forItem:(NSMutableDictionary *)itemDictionary;
@@ -59,18 +60,23 @@
 
 @optional
 
+-(void)azureMobileServiceDidFailWithError:(NSError *)error;
+
 -(void)azureMobileServiceDidFinishInsertData;
 
 -(void)azureMobileServiceDidFinishUpdateData;
 
 -(void)azureMobileServiceDidFinishDeleteData;
 
--(void)azureMobileServiceDidFinishGetData;
-
--(void)azureMobileServiceDidFinishGetData:(id)object;
-
 -(void)azureMobileServiceDidSuccessAuthenticating;
 
 -(void)azureMobileServiceDidSuccessLogoutAzureClient;
+
+
+-(void)azureMobileServiceDidFinishGetData;
+
+-(void)azureMobileServiceDidFinishGetDataForList:(id)object;
+
+-(void)azureMobileServiceDidFinishGetDataForSingleItem:(id)object;
 
 @end

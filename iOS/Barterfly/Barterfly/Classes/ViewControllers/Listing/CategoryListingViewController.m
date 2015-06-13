@@ -22,6 +22,12 @@
     [self initializeStartingVariable];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self getData];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,13 +37,44 @@
 
 -(void)initializeStartingVariable
 {
+    listinArray = [[NSMutableArray alloc]init];
+    
     self.searchBar.delegate = self;
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"optionCollectionView"];
+    
+    [self initAzureClient];
 }
+
+-(void)initAzureClient
+{
+    mobileService = [[azureMobileService alloc]initAzureClient];
+    mobileService.delegate = self;
+}
+
+-(void)getData
+{
+    [mobileService getFullListingItemForTableWithName:[AICommonUtils getAzureTableNameForTable:tableAllTradeItem]];
+    
+    [self createLoadingScreen];
+}
+
+-(void)getItemImage:(NSMutableArray *)array
+{
+    NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+    tempdic = [[array objectAtIndex:0] mutableCopy];
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    [dic setObject:[tempdic objectForKey:@"id"] forKey:@"id"];
+    
+    [mobileService getSingleItemUsingAPIForTableWithName:[AICommonUtils getAzureTableNameForTable:tableTradeItemImage] queryString:[NSString stringWithFormat:@"tradeItemId=%@", [tempdic objectForKey:@"id"]]];
+    
+    [self createLoadingScreen];
+}
+
 /*
  #pragma mark - Navigation
  
@@ -48,13 +85,37 @@
  }
  */
 
+-(void)createLoadingScreen
+{
+    if (!screen)
+    {
+        screen = [[LoadingScreen alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) forSuperView:self.view atTarget:self];
+        screen.backgroundColor = [AICommonUtils getAIColorWithRGB0_32_44:0.4];
+        [self.view addSubview:screen];
+    }
+}
+
+-(void)dismissLoadingScreen
+{
+    if (screen)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            screen.alpha = 0;
+        }completion:^(BOOL finished){
+            [screen removeFromSuperview];
+            screen = nil;
+        }];
+    }
+}
+
+
 /********** UICollectionView **********/
 
 #pragma mark - UICollectionView Delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    return [listinArray count];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -64,12 +125,12 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 5;
+    return 0;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 5;
+    return 0;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +138,7 @@
     
     if (collectionView == self.collectionView)
     {
-        CGFloat size = (collectionView.frame.size.width - 25)/5;
+        CGFloat size = (collectionView.frame.size.width)/5;
         return CGSizeMake(size, size);
     }
     
@@ -98,7 +159,7 @@
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"optionCollectionView" forIndexPath:indexPath];
             
             
-            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, cell.frame.size.width - 10, cell.frame.size.height - 10)];
             titleLabel.tag = 1;
             titleLabel.textAlignment = NSTextAlignmentCenter;
             titleLabel.font = [UIFont systemFontOfSize:22];
@@ -128,9 +189,12 @@
     
     if (collectionView == self.collectionView)
     {
-        if (indexPath.row == 0)
+        if (collectionView == self.collectionView)
         {
+            NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+            tempdic = [[listinArray objectAtIndex:indexPath.row] mutableCopy];
             
+            [AICommonUtils navigateToItemDetailsPageWithNavigationController:self.navigationController forDictionary:tempdic];
         }
     }
     
@@ -166,6 +230,36 @@
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     
+}
+
+#pragma mark - Azure Mobile Service Delegate
+
+-(void)azureMobileServiceDidFinishGetDataForList:(id)object
+{
+    listinArray = [(NSMutableArray *)object mutableCopy];
+    
+    NSLog(@"result: %@", listinArray);
+    
+    [self dismissLoadingScreen];
+    
+    [self.collectionView reloadData];
+    
+    //[self getItemImage:tempArray];
+}
+
+-(void)azureMobileServiceDidFinishGetDataForSingleItem:(id)object
+{
+    NSDictionary *tempdic = (NSDictionary *)object;
+    
+    NSLog(@"result: %@", tempdic);
+    
+    [self dismissLoadingScreen];
+}
+
+
+-(void)azureMobileServiceDidFailWithError:(NSError *)error
+{
+    [self dismissLoadingScreen];
 }
 
 @end

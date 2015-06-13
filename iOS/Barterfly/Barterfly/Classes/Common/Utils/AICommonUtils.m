@@ -1,12 +1,13 @@
 //
 //  AICommonUtils.m
-//  BalloonPopper
+//  
 //
 //  Created by Mun Fai Leong on 3/8/15.
-//  Copyright (c) 2015 myAppIndustry. All rights reserved.
+//  Copyright (c) 2015 angelhack. All rights reserved.
 //
 
 #import "AICommonUtils.h"
+#import "ItemDetailViewController.h"
 
 @implementation AICommonUtils
 
@@ -48,6 +49,37 @@
             fontName = @"Zapfino";
             break;
             
+        case fontTrebuchetMS:
+            fontName = @"TrebuchetMS";
+            break;
+            
+        case fontTrebuchetMSBold:
+            fontName = @"TrebuchetMS-Bold";
+            break;
+            
+        case fontTrebuchetMSBoldItalic:
+            fontName = @"Trebuchet-BoldItalic";
+            break;
+            
+        case fontTrebuchetMSItalic:
+            fontName = @"TrebuchetMS-Italic";
+            break;
+            
+        case fontHelveticaNeue:
+            fontName = @"HelveticaNeue";
+            break;
+            
+        case fontHelveticaNeueItalic:
+            fontName = @"HelveticaNeue-Italic";
+            break;
+            
+        case fontHelveticaNeueLight:
+            fontName = @"HelveticaNeue-Light";
+            break;
+            
+        case fontHelveticaNeueThin:
+            fontName = @"HelveticaNeue-Thin";
+            break;
             
         default:
             break;
@@ -176,11 +208,89 @@
     return [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:alpha];
 }
 
-+(void)navigateToItemDetailsPageWithNavigationController:(UINavigationController *)navigationController
++(UIColor *)getAIColorWithRGB0_32_44:(CGFloat)alpha
+{
+    return [UIColor colorWithRed:0.0/255.0 green:32.0/255.0 blue:44.0/255.0 alpha:alpha];
+}
+
++(void)navigateToItemDetailsPageWithNavigationController:(UINavigationController *)navigationController forDictionary:(NSMutableDictionary *)dictionary
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *wrongpin = (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ItemDetailViewController"];
+    ItemDetailViewController *wrongpin = (ItemDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ItemDetailViewController"];
+    wrongpin.itemDictionary = dictionary;
     
     [navigationController pushViewController:wrongpin animated:YES];
 }
+
+
+
++(NSString *)getAzureTableNameForTable:(azureTableName)tableName
+{
+    NSString *table;
+    
+    switch (tableName)
+    {
+        case tableRequestItem:
+            table = @"RequestItem";
+            break;
+            
+        case tableRequestItemComment:
+            table = @"RequestItemComment";
+            break;
+            
+        case tableRequestItemImage:
+            table = @"RequestItemImage";
+            break;
+            
+        case tableRequestItemLike:
+            table = @"RequestItemLike";
+            break;
+            
+        case tableTradeItem:
+            table = @"TradeItem";
+            break;
+            
+        case tableTradeItemComment:
+            table = @"TradeItemComment";
+            break;
+            
+        case tableTradeItemImage:
+            table = @"TradeItemImage";
+            break;
+            
+        case tableTradeItemLike:
+            table = @"TradeItemLike";
+            break;
+            
+        case tableTradeItemWishList:
+            table = @"TradeItemWishList";
+            break;
+            
+        case tableAllRequestItem:
+            table = @"AllRequestItem";
+            break;
+            
+        case tableAllTradeItem:
+            table = @"AllTradeItem";
+            break;
+    }
+    
+    return table;
+}
+
++(NSString *)getCategoryNameForId:(NSInteger)categoryId
+{
+    NSString *name;
+    
+    switch (categoryId)
+    {
+        case 1:
+            name = @"BOOKS - FICTION";
+            break;
+    }
+    
+    return name;
+}
+
+
 @end

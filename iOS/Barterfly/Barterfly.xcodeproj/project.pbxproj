@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		288137041B2C4CF600870331 /* map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137021B2C4CF600870331 /* map_pin.png */; };
+		288137051B2C4CF600870331 /* map_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137031B2C4CF600870331 /* map_pin@2x.png */; };
+		288137111B2C571500870331 /* BarterflyAppIcon29.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137071B2C571500870331 /* BarterflyAppIcon29.png */; };
+		288137121B2C571500870331 /* BarterflyAppIcon29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137081B2C571500870331 /* BarterflyAppIcon29@2x.png */; };
+		288137131B2C571500870331 /* BarterflyAppIcon29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137091B2C571500870331 /* BarterflyAppIcon29@3x.png */; };
+		288137141B2C571500870331 /* BarterflyAppIcon40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881370A1B2C571500870331 /* BarterflyAppIcon40.png */; };
+		288137151B2C571500870331 /* BarterflyAppIcon40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881370B1B2C571500870331 /* BarterflyAppIcon40@2x.png */; };
+		288137161B2C571500870331 /* BarterflyAppIcon40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881370C1B2C571500870331 /* BarterflyAppIcon40@3x.png */; };
+		288137171B2C571500870331 /* BarterflyAppIcon60.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881370D1B2C571500870331 /* BarterflyAppIcon60.png */; };
+		288137181B2C571500870331 /* BarterflyAppIcon60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881370E1B2C571500870331 /* BarterflyAppIcon60@3x.png */; };
+		288137191B2C571500870331 /* BarterflyAppIcon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881370F1B2C571500870331 /* BarterflyAppIcon76.png */; };
+		2881371A1B2C571500870331 /* BarterflyAppIcon76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137101B2C571500870331 /* BarterflyAppIcon76@2x.png */; };
+		2881371F1B2C675B00870331 /* ListingTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881371C1B2C675B00870331 /* ListingTabIcon.png */; };
+		288137201B2C675B00870331 /* ListingTabIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881371D1B2C675B00870331 /* ListingTabIcon@2x.png */; };
+		288137211B2C675B00870331 /* ListingTabIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881371E1B2C675B00870331 /* ListingTabIcon@3x.png */; };
+		288137241B2C6F2300870331 /* LoadingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 288137231B2C6F2300870331 /* LoadingScreen.m */; };
+		288137271B2C9BE100870331 /* EmptyViewWithPullDownGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 288137261B2C9BE100870331 /* EmptyViewWithPullDownGesture.m */; };
 		28E1A74A1B2BCB9F00805AD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7491B2BCB9F00805AD8 /* main.m */; };
 		28E1A74D1B2BCB9F00805AD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A74C1B2BCB9F00805AD8 /* AppDelegate.m */; };
 		28E1A7501B2BCB9F00805AD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A74F1B2BCB9F00805AD8 /* ViewController.m */; };
@@ -53,6 +70,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		288137021B2C4CF600870331 /* map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_pin.png; path = Images/ExampleIcons/map_pin.png; sourceTree = "<group>"; };
+		288137031B2C4CF600870331 /* map_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_pin@2x.png"; path = "Images/ExampleIcons/map_pin@2x.png"; sourceTree = "<group>"; };
+		288137071B2C571500870331 /* BarterflyAppIcon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BarterflyAppIcon29.png; path = Images/appIcon/BarterflyAppIcon29.png; sourceTree = "<group>"; };
+		288137081B2C571500870331 /* BarterflyAppIcon29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BarterflyAppIcon29@2x.png"; path = "Images/appIcon/BarterflyAppIcon29@2x.png"; sourceTree = "<group>"; };
+		288137091B2C571500870331 /* BarterflyAppIcon29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BarterflyAppIcon29@3x.png"; path = "Images/appIcon/BarterflyAppIcon29@3x.png"; sourceTree = "<group>"; };
+		2881370A1B2C571500870331 /* BarterflyAppIcon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BarterflyAppIcon40.png; path = Images/appIcon/BarterflyAppIcon40.png; sourceTree = "<group>"; };
+		2881370B1B2C571500870331 /* BarterflyAppIcon40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BarterflyAppIcon40@2x.png"; path = "Images/appIcon/BarterflyAppIcon40@2x.png"; sourceTree = "<group>"; };
+		2881370C1B2C571500870331 /* BarterflyAppIcon40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BarterflyAppIcon40@3x.png"; path = "Images/appIcon/BarterflyAppIcon40@3x.png"; sourceTree = "<group>"; };
+		2881370D1B2C571500870331 /* BarterflyAppIcon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BarterflyAppIcon60.png; path = Images/appIcon/BarterflyAppIcon60.png; sourceTree = "<group>"; };
+		2881370E1B2C571500870331 /* BarterflyAppIcon60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BarterflyAppIcon60@3x.png"; path = "Images/appIcon/BarterflyAppIcon60@3x.png"; sourceTree = "<group>"; };
+		2881370F1B2C571500870331 /* BarterflyAppIcon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BarterflyAppIcon76.png; path = Images/appIcon/BarterflyAppIcon76.png; sourceTree = "<group>"; };
+		288137101B2C571500870331 /* BarterflyAppIcon76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BarterflyAppIcon76@2x.png"; path = "Images/appIcon/BarterflyAppIcon76@2x.png"; sourceTree = "<group>"; };
+		2881371C1B2C675B00870331 /* ListingTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ListingTabIcon.png; path = Images/tabBarIcon/ListingTabIcon.png; sourceTree = "<group>"; };
+		2881371D1B2C675B00870331 /* ListingTabIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ListingTabIcon@2x.png"; path = "Images/tabBarIcon/ListingTabIcon@2x.png"; sourceTree = "<group>"; };
+		2881371E1B2C675B00870331 /* ListingTabIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ListingTabIcon@3x.png"; path = "Images/tabBarIcon/ListingTabIcon@3x.png"; sourceTree = "<group>"; };
+		288137221B2C6F2300870331 /* LoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingScreen.h; path = Classes/Common/Utils/LoadingScreen.h; sourceTree = "<group>"; };
+		288137231B2C6F2300870331 /* LoadingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingScreen.m; path = Classes/Common/Utils/LoadingScreen.m; sourceTree = "<group>"; };
+		288137251B2C9BE100870331 /* EmptyViewWithPullDownGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyViewWithPullDownGesture.h; path = Classes/Common/Utils/EmptyViewWithPullDownGesture.h; sourceTree = "<group>"; };
+		288137261B2C9BE100870331 /* EmptyViewWithPullDownGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyViewWithPullDownGesture.m; path = Classes/Common/Utils/EmptyViewWithPullDownGesture.m; sourceTree = "<group>"; };
 		28E1A7441B2BCB9F00805AD8 /* Barterfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barterfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E1A7481B2BCB9F00805AD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E1A7491B2BCB9F00805AD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,6 +166,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		288137061B2C570700870331 /* appIcon */ = {
+			isa = PBXGroup;
+			children = (
+				288137071B2C571500870331 /* BarterflyAppIcon29.png */,
+				288137081B2C571500870331 /* BarterflyAppIcon29@2x.png */,
+				288137091B2C571500870331 /* BarterflyAppIcon29@3x.png */,
+				2881370A1B2C571500870331 /* BarterflyAppIcon40.png */,
+				2881370B1B2C571500870331 /* BarterflyAppIcon40@2x.png */,
+				2881370C1B2C571500870331 /* BarterflyAppIcon40@3x.png */,
+				2881370D1B2C571500870331 /* BarterflyAppIcon60.png */,
+				2881370E1B2C571500870331 /* BarterflyAppIcon60@3x.png */,
+				2881370F1B2C571500870331 /* BarterflyAppIcon76.png */,
+				288137101B2C571500870331 /* BarterflyAppIcon76@2x.png */,
+			);
+			name = appIcon;
+			sourceTree = "<group>";
+		};
+		2881371B1B2C674F00870331 /* tabBarIcon */ = {
+			isa = PBXGroup;
+			children = (
+				2881371C1B2C675B00870331 /* ListingTabIcon.png */,
+				2881371D1B2C675B00870331 /* ListingTabIcon@2x.png */,
+				2881371E1B2C675B00870331 /* ListingTabIcon@3x.png */,
+			);
+			name = tabBarIcon;
+			sourceTree = "<group>";
+		};
 		28E1A73B1B2BCB9F00805AD8 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +278,8 @@
 		28E1A7AE1B2BF6C100805AD8 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				2881371B1B2C674F00870331 /* tabBarIcon */,
+				288137061B2C570700870331 /* appIcon */,
 				28E1A7BE1B2BF74400805AD8 /* ExampleIcons */,
 				28E1A7BC1B2BF74000805AD8 /* facebookLogin.png */,
 			);
@@ -262,6 +327,10 @@
 				28E1A7C91B2BF76800805AD8 /* AIEnumCollection.h */,
 				28E1A7CA1B2BF76800805AD8 /* GBConnectionManager.h */,
 				28E1A7CB1B2BF76800805AD8 /* GBConnectionManager.m */,
+				288137221B2C6F2300870331 /* LoadingScreen.h */,
+				288137231B2C6F2300870331 /* LoadingScreen.m */,
+				288137251B2C9BE100870331 /* EmptyViewWithPullDownGesture.h */,
+				288137261B2C9BE100870331 /* EmptyViewWithPullDownGesture.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -280,6 +349,8 @@
 		28E1A7BE1B2BF74400805AD8 /* ExampleIcons */ = {
 			isa = PBXGroup;
 			children = (
+				288137021B2C4CF600870331 /* map_pin.png */,
+				288137031B2C4CF600870331 /* map_pin@2x.png */,
 				28E1A7F21B2C12E800805AD8 /* anonymous_dark.png */,
 				28E1A7F31B2C12E800805AD8 /* anonymous_dark@2x.png */,
 				28E1A7EB1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png */,
@@ -431,17 +502,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288137181B2C571500870331 /* BarterflyAppIcon60@3x.png in Resources */,
+				288137141B2C571500870331 /* BarterflyAppIcon40.png in Resources */,
 				28E1A7F51B2C12E800805AD8 /* anonymous_dark@2x.png in Resources */,
 				28E1A7C51B2BF75000805AD8 /* barterCyan@3x.png in Resources */,
 				28E1A7C31B2BF75000805AD8 /* barterCyan.png in Resources */,
 				28E1A7EE1B2C0CE000805AD8 /* dividing_line_horizontal_dark@2x.png in Resources */,
+				288137201B2C675B00870331 /* ListingTabIcon@2x.png in Resources */,
+				288137191B2C571500870331 /* BarterflyAppIcon76.png in Resources */,
 				28E1A7ED1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png in Resources */,
+				288137041B2C4CF600870331 /* map_pin.png in Resources */,
+				288137121B2C571500870331 /* BarterflyAppIcon29@2x.png in Resources */,
+				288137161B2C571500870331 /* BarterflyAppIcon40@3x.png in Resources */,
 				28E1A7F41B2C12E800805AD8 /* anonymous_dark.png in Resources */,
 				28E1A7C61B2BF75000805AD8 /* barterWide.png in Resources */,
 				28E1A7531B2BCB9F00805AD8 /* Main.storyboard in Resources */,
 				28E1A7581B2BCB9F00805AD8 /* LaunchScreen.xib in Resources */,
+				288137111B2C571500870331 /* BarterflyAppIcon29.png in Resources */,
+				2881371A1B2C571500870331 /* BarterflyAppIcon76@2x.png in Resources */,
+				288137151B2C571500870331 /* BarterflyAppIcon40@2x.png in Resources */,
+				2881371F1B2C675B00870331 /* ListingTabIcon.png in Resources */,
 				28E1A7C41B2BF75000805AD8 /* barterCyan@2x.png in Resources */,
+				288137211B2C675B00870331 /* ListingTabIcon@3x.png in Resources */,
+				288137171B2C571500870331 /* BarterflyAppIcon60.png in Resources */,
+				288137051B2C4CF600870331 /* map_pin@2x.png in Resources */,
 				28E1A7551B2BCB9F00805AD8 /* Images.xcassets in Resources */,
+				288137131B2C571500870331 /* BarterflyAppIcon29@3x.png in Resources */,
 				28E1A7BD1B2BF74000805AD8 /* facebookLogin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +550,7 @@
 				28E1A7BB1B2BF72F00805AD8 /* SSKeychainQuery.m in Sources */,
 				28E1A7BA1B2BF72F00805AD8 /* SSKeychain.m in Sources */,
 				28E1A7EA1B2BFA7E00805AD8 /* CategoryListingViewController.m in Sources */,
+				288137241B2C6F2300870331 /* LoadingScreen.m in Sources */,
 				28E1A74D1B2BCB9F00805AD8 /* AppDelegate.m in Sources */,
 				28E1A7E41B2BF96500805AD8 /* RequestTradeViewController.m in Sources */,
 				28E1A7F11B2C0FB200805AD8 /* ItemDetailViewController.m in Sources */,
@@ -474,6 +561,7 @@
 				28E1A7CD1B2BF76800805AD8 /* GBConnectionManager.m in Sources */,
 				28E1A74A1B2BCB9F00805AD8 /* main.m in Sources */,
 				28E1A7F91B2C275E00805AD8 /* NearbyMeViewController.m in Sources */,
+				288137271B2C9BE100870331 /* EmptyViewWithPullDownGesture.m in Sources */,
 				28E1A7D01B2BF7AA00805AD8 /* azureMobileService.m in Sources */,
 				28E1A7E11B2BF93100805AD8 /* ProfileViewController.m in Sources */,
 				28E1A7DE1B2BF8ED00805AD8 /* FeaturedViewController.m in Sources */,

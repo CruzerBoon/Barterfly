@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "AIEnumCollection.h"
+#import "LoadingScreen.h"
+#import "EmptyViewWithPullDownGesture.h"
 
 #import "GBConnectionManager.h"
 
@@ -40,7 +42,13 @@
 +(UIColor *)getAIColorWithRGB228:(CGFloat)alpha;
 +(UIColor *)getAIColorWithRGB192;
 +(UIColor *)getAIColorWithRGB000:(CGFloat)alpha;
++(UIColor *)getAIColorWithRGB0_32_44:(CGFloat)alpha;
 
++(void)navigateToItemDetailsPageWithNavigationController:(UINavigationController *)navigationController forDictionary:(NSMutableDictionary *)dictionary;
 
-+(void)navigateToItemDetailsPageWithNavigationController:(UINavigationController *)navigationController;
+/* GET AZURE TABLE NAME */
+
++(NSString *)getAzureTableNameForTable:(azureTableName)tableName;
+
++(NSString *)getCategoryNameForId:(NSInteger)categoryId;
 @end

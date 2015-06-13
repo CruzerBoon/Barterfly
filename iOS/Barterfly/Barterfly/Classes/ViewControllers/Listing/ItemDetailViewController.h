@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AICommonUtils.h"
 
-@interface ItemDetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
-
+@interface ItemDetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, GBEmptyViewDelegate, UIWebViewDelegate>
+{
+    LoadingScreen *screen;
+}
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
@@ -46,6 +48,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *photo_collectionView;
 
 
+@property (nonatomic) NSMutableDictionary *itemDictionary;
+
+
 - (IBAction)segmentedControlSelectedView:(id)sender;
+- (IBAction)showDetailMapping:(id)sender;
 
 @end

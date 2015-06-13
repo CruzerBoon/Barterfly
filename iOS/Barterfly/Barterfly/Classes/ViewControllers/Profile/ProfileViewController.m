@@ -34,10 +34,7 @@
 {
     [super viewDidAppear:animated];
     
-//    azureAuthentication *mobileService = [[azureAuthentication alloc]init];
-//    currentUser = [mobileService loadAuthenticationInfoWithUserForClient];
     
-    [mobileService getSingleDataFromTableWithName:@"UserProfile" forId:@"0"];
 }
 
 -(void)initializeStartingVariable
@@ -52,17 +49,17 @@
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.height / 2;
     self.profileImageView.clipsToBounds = YES;
     
-    self.profileUserName.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:16.0];
+    self.profileUserName.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:16.0];
     self.profileUserName.attributedText = [AICommonUtils createStringWithSpacing:self.profileUserName.text spacngValue:2.0 withUnderLine:NO];
     
-    self.creditBalance.font = [AICommonUtils getCustomTypeface:fontAvenirNextUltraLight ofSize:self.creditBalance.font.pointSize];
-    self.creditBalanceTitle.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:self.creditBalanceTitle.font.pointSize];
+    self.creditBalance.font = [AICommonUtils getCustomTypeface:fontHelveticaNeueThin ofSize:self.creditBalance.font.pointSize];
+    self.creditBalanceTitle.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:self.creditBalanceTitle.font.pointSize];
     self.creditBalanceTitle.attributedText = [AICommonUtils createStringWithSpacing:self.creditBalanceTitle.text spacngValue:4.0 withUnderLine:NO];
     
-    self.buyCreditButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12.0];
+    self.buyCreditButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12.0];
     self.buyCreditButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.buyCreditButton.titleLabel.text spacngValue:4.0 withUnderLine:NO];
     
-    self.logoutButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontCourier ofSize:12.0];
+    self.logoutButton.titleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12.0];
     self.logoutButton.titleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.logoutButton.titleLabel.text spacngValue:4.0 withUnderLine:NO];
 }
 

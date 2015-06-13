@@ -160,15 +160,15 @@
                                                 <rect key="frame" x="0.0" y="185" width="375" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWw-30-bBN">
-                                                        <rect key="frame" x="20" y="4" width="175" height="21"/>
-                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="12" y="4" width="175" height="21"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69000000000000006" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCT-UC-8DN">
-                                                        <rect key="frame" x="267" y="0.0" width="100" height="30"/>
+                                                        <rect key="frame" x="282" y="0.0" width="85" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <state key="normal" title="SEE MORE">
+                                                        <state key="normal" title="SEE MORE &gt;&gt;">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                     </button>
@@ -178,15 +178,15 @@
                                                 <rect key="frame" x="0.0" y="370" width="375" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Popular" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imy-Cb-QBJ">
-                                                        <rect key="frame" x="20" y="4" width="175" height="21"/>
-                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="12" y="4" width="175" height="21"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69000000000000006" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0q-lF-oNs">
-                                                        <rect key="frame" x="267" y="0.0" width="100" height="30"/>
+                                                        <rect key="frame" x="282" y="0.0" width="85" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <state key="normal" title="SEE MORE">
+                                                        <state key="normal" title="SEE MORE &gt;&gt;">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                     </button>
@@ -205,13 +205,17 @@
                         <outlet property="contentView" destination="Aw1-Fk-acy" id="mlS-pB-Ov3"/>
                         <outlet property="featuredCollectionView" destination="tDB-qM-vgk" id="4DF-zF-uSi"/>
                         <outlet property="latestCollectionView" destination="fAE-Aj-pvA" id="jx0-OX-CXC"/>
+                        <outlet property="latestSeeMoreButton" destination="hCT-UC-8DN" id="wBV-cW-wDs"/>
+                        <outlet property="latestTitleLabel" destination="RWw-30-bBN" id="whe-GU-khc"/>
                         <outlet property="mostPopularCollectionView" destination="fSB-O6-fpq" id="cd9-PM-BNs"/>
+                        <outlet property="popularSeeMoreButton" destination="i0q-lF-oNs" id="oTC-7B-WSe"/>
+                        <outlet property="popularTitleLabel" destination="Imy-Cb-QBJ" id="ZBY-FO-6aW"/>
                         <outlet property="scrollVIew" destination="X06-CM-K3L" id="m9M-OE-kcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkL-FM-aBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377.5" y="724.5"/>
+            <point key="canvasLocation" x="385.5" y="710.5"/>
         </scene>
         <!--Detail-->
         <scene sceneID="lkr-c8-rdk">
@@ -358,7 +362,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" id="oU1-Gk-Hni"/>
+                    <navigationItem key="navigationItem" title="Detail" id="oU1-Gk-Hni">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="1j2-1T-YjK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="RJ0-UF-jcm">
+                                <rect key="frame" x="276" y="7" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showDetailMapping:" destination="f5D-r2-Gy4" eventType="touchUpInside" id="mFV-4W-YM4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -385,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bri-vh-aNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361.5" y="874.5"/>
+            <point key="canvasLocation" x="935.5" y="846.5"/>
         </scene>
         <!--Barter-->
         <scene sceneID="NzH-8J-OTh">
@@ -432,6 +449,7 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Requirements (separated by comma)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOo-4O-teb">
                                 <rect key="frame" x="16" y="120" width="343" height="30"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -475,7 +493,7 @@
         <scene sceneID="Pqv-dp-3tZ">
             <objects>
                 <navigationController storyboardIdentifier="ListingNavigationContoller" id="xB0-Ih-Mz2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Listing" id="OKy-3l-WbF"/>
+                    <tabBarItem key="tabBarItem" title="Listing" image="ListingTabIcon.png" id="OKy-3l-WbF"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7Px-3t-R6z">
@@ -537,7 +555,7 @@
                                     <action selector="Login:" destination="thI-od-Q9V" eventType="touchUpInside" id="fAH-LS-Sad"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="barterCyan@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="RJj-x6-aZS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="BarterflyAppIcon60@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="RJj-x6-aZS">
                                 <rect key="frame" x="87" y="234" width="200" height="200"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Barterfly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE2-gE-szD">
@@ -559,6 +577,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="LoginButton" destination="w9a-zx-clZ" id="MCh-fA-5jE"/>
+                        <outlet property="iconImageView" destination="RJj-x6-aZS" id="knF-ao-Syz"/>
+                        <outlet property="titleLabel" destination="RE2-gE-szD" id="haJ-bx-ooE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="926-Ch-l9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -603,7 +623,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Nearby Me" id="PEr-06-DwE"/>
                     <connections>
-                        <outlet property="mapVIew" destination="rr2-LH-X8h" id="ttx-aL-Uxz"/>
+                        <outlet property="mapView" destination="rr2-LH-X8h" id="gca-2P-AmS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJD-if-KPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -702,58 +722,10 @@
             </objects>
             <point key="canvasLocation" x="459.5" y="2358.5"/>
         </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="gcc-Fg-fVr">
-            <objects>
-                <collectionViewController id="ozl-yK-dIw" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="o4G-oy-crL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pe1-CV-uTF">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zkM-CI-g7j">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="ozl-yK-dIw" id="asV-gR-nzC"/>
-                            <outlet property="delegate" destination="ozl-yK-dIw" id="stL-kO-vS8"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IQM-Po-UHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="3hf-Qy-IN5">
-            <objects>
-                <viewController id="kY5-kF-pRD" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hdG-eY-udC"/>
-                        <viewControllerLayoutGuide type="bottom" id="ggJ-4T-tHI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pZX-P8-cQD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i3c-LC-oAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
+        <image name="BarterflyAppIcon60@3x.png" width="180" height="180"/>
+        <image name="ListingTabIcon.png" width="25" height="24"/>
         <image name="anonymous_dark.png" width="65" height="65"/>
         <image name="barterCyan@3x.png" width="200" height="200"/>
         <image name="barterWide.png" width="250" height="155"/>

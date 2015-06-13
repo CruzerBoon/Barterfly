@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "azureMobileService.h"
+#import "AICommonUtils.h"
 
-@interface CategoryListingViewController : UIViewController <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
-
+@interface CategoryListingViewController : UIViewController <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, AzureMobileServiceDelegate>
+{
+    azureMobileService *mobileService;
+    LoadingScreen *screen;
+    
+    NSMutableArray *listinArray;
+}
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 

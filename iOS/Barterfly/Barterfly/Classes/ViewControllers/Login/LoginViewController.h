@@ -18,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *LoginButton;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+
 - (IBAction)Login:(id)sender;
 
 @end

@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "azureMobileService.h"
-
+#import "AICommonUtils.h"
 
 @interface ListingViewController : UIViewController <AzureMobileServiceDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     azureMobileService *mobileService;
+    LoadingScreen *screen;
 }
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
