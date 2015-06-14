@@ -8,6 +8,8 @@
 
 #import "LoadingScreen.h"
 
+UIImageView *loadingImageView;
+
 @implementation LoadingScreen
 
 
@@ -44,6 +46,11 @@
     indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [indicator startAnimating];
     
+    loadingImageView = [[UIImageView alloc]initWithFrame:CGRectMake(contentView.frame.size.width / 2 - 20, 30, 40, 40)];
+    loadingImageView.image = [UIImage imageNamed:@"BarterflyAppIcon40"];
+    loadingImageView.layer.cornerRadius = loadingImageView.frame.size.height / 2;
+    loadingImageView.clipsToBounds = YES;
+    
     UILabel *processLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, indicator.frame.size.height + indicator.frame.origin.y + 20, contentView.frame.size.width - 40, 30)];
     processLabel.textAlignment = NSTextAlignmentCenter;
     processLabel.numberOfLines = 1;
@@ -53,9 +60,29 @@
     processLabel.attributedText = [AICommonUtils createStringWithSpacing:processLabel.text spacngValue:2.0 withUnderLine:NO];
     
     [contentView addSubview:processLabel];
-    [contentView addSubview:indicator];
+    [contentView addSubview:loadingImageView];
     
     [self addSubview:contentView];
+    
+    [self animateLoadingImageView];
+}
+
+-(void)animateLoadingImageView
+{
+    CGFloat alphaToChange = 0;
+    
+    if (loadingImageView.alpha == 0)
+        alphaToChange = 1;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        loadingImageView.alpha = 0;
+    }completion:^(BOOL finished){
+        [UIView animateWithDuration:0.5 animations:^{
+            loadingImageView.alpha = 1;
+        }completion:^(BOOL finished){
+            [self performSelector:@selector(animateLoadingImageView) withObject:nil afterDelay:0.5];
+        }];
+    }];
 }
 
 @end

@@ -22,13 +22,15 @@
     // Do any additional setup after loading the view.
     
     [self initializeStartingVariable];
+    
+    [self getData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self getData];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,12 +91,8 @@
 {
     if (screen)
     {
-        [UIView animateWithDuration:0.5 animations:^{
-            screen.alpha = 0;
-        }completion:^(BOOL finished){
-            [screen removeFromSuperview];
-            screen = nil;
-        }];
+        [screen removeFromSuperview];
+        screen = nil;
     }
 }
 

@@ -21,16 +21,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self initializeMap];
     
+    [self performSelector:@selector(initAzureClient) withObject:nil afterDelay:1.0];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self initializeMap];
     
-    [self performSelector:@selector(initAzureClient) withObject:nil afterDelay:1.0];
 }
 
 - (void)didReceiveMemoryWarning

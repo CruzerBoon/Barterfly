@@ -28,7 +28,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self createView];
+    
     [self initializeStartingVariable];
+    
+    [self addGesture];
+    
+    [self initAzureClient];
     
     NSLog(@"obj: %@", self.itemDictionary);
 }
@@ -39,15 +45,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+-(void)createView
+{
+    self.summary_itemDescription = [[UILabel alloc]initWithFrame:CGRectMake(20, 454, 343, 213)];
+    self.summary_itemDescription.numberOfLines = 0;
+    self.summary_itemDescription.textAlignment = NSTextAlignmentCenter;
+    self.summary_itemDescription.text = @"item";
+    
+    self.summary_creditView = [[UIView alloc]initWithFrame:CGRectMake(20, 567, 100, 100)];
+    self.summary_creditView.backgroundColor = [UIColor colorWithRed:27.0/255.0 green:161.0/255.0 blue:226.0/255.0 alpha:1.0];
+    self.summary_creditView.alpha = 1;
+    
+    self.summary_creditValueLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 20, 84, 37)];
+    self.summary_creditValueLabel.text = @"1000";
+    self.summary_creditValueLabel.textAlignment = NSTextAlignmentCenter;
+    
+    self.summary_creditTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 56, 84, 31)];
+    self.summary_creditTitleLabel.numberOfLines = 0;
+    self.summary_creditTitleLabel.textAlignment = NSTextAlignmentCenter;
+    self.summary_creditTitleLabel.text = @"Credit\nPoint";
+    
+    self.summary_itemImageView = [[UIImageView alloc]initWithFrame:CGRectMake(-40, 50, 464, 364)];
+    self.summary_itemImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.summary_userImageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 20, 200, 200)];
+    self.summary_userImageView.alpha = 1;
+    
+    [self.summary_creditView addSubview:self.summary_creditTitleLabel];
+    [self.summary_creditView addSubview:self.summary_creditValueLabel];
+    
+    [self.summaryContentView addSubview:self.summary_itemDescription];
+    [self.summaryContentView addSubview:self.summary_itemImageView];
+    [self.summaryContentView addSubview:self.summary_userImageView];
+    [self.summaryContentView addSubview:self.summary_creditView];
+}
+
 -(void)initializeStartingVariable
 {
     photoArray = [[NSMutableArray alloc]init];
     
-    self.summary_itemImageView.layer.cornerRadius = self.summary_itemImageView.frame.size.height / 7;
-    self.summary_itemImageView.clipsToBounds = YES;
-    
-    self.summary_userImageView.layer.cornerRadius = self.summary_userImageView.frame.size.height / 2;
-    self.summary_userImageView.clipsToBounds = YES;
+    [self circleImageView];
     
     self.summary_itemDescription.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:16.0];
     self.summary_itemDescription.attributedText = [AICommonUtils createStringWithSpacing:self.summary_itemDescription.text spacngValue:0 withUnderLine:NO];
@@ -55,7 +94,7 @@
     self.summary_itemDescription.layer.cornerRadius = self.summary_itemDescription.frame.size.height / 10;
     self.summary_itemDescription.clipsToBounds = YES;
     self.summary_itemDescription.backgroundColor = [AICommonUtils getAIColorWithRGB0_32_44:0.1];
-    [self.summary_itemDescription sizeToFit];
+    //[self.summary_itemDescription sizeToFit];
     
     self.summary_creditView.layer.cornerRadius = self.summary_creditView.frame.size.height / 2;
     self.summary_creditView.clipsToBounds = YES;
@@ -108,8 +147,6 @@
     
     [self.photo_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"photo_collectionView"];
     
-    [self initAzureClient];
-    
     [self setDataIntoDisplay];
 }
 
@@ -134,7 +171,7 @@
     
     self.summary_itemDescription.text = [NSString stringWithFormat:@"Item Name\n%@\n\nTrader\n%@\n\nCategory\n%@", [self.itemDictionary objectForKey:@"name"], [self.itemDictionary objectForKey:@"userName"], [AICommonUtils getCategoryNameForId:[[self.itemDictionary objectForKey:@"category"] integerValue]]];
     
-    [self.summary_itemDescription sizeToFit];
+    //[self.summary_itemDescription sizeToFit];
     
     self.summary_creditValueLabel.text = [NSString stringWithFormat:@"%@", [self.itemDictionary objectForKey:@"creditpointFloor"]];
     
@@ -151,6 +188,110 @@
     self.details_itemPurchasedDateField.text = [NSString stringWithFormat:@"$%.2f", [[self.itemDictionary objectForKey:@"purchasePrice"] doubleValue]];
     self.details_itemReasonField.text = [NSString stringWithFormat:@"%@", [self.itemDictionary objectForKey:@"exchangeMethod"]];
 
+}
+
+-(void)circleImageView
+{
+    self.summary_itemImageView.layer.cornerRadius = self.summary_itemImageView.frame.size.height / 7;
+    self.summary_itemImageView.clipsToBounds = YES;
+    
+    self.summary_userImageView.layer.cornerRadius = self.summary_userImageView.frame.size.height / 2;
+    self.summary_userImageView.clipsToBounds = YES;
+}
+
+
+
+-(void)addGesture
+{
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
+    
+    [self.summaryContentView addGestureRecognizer:pan];
+}
+
+-(void)handlePan:(UIPanGestureRecognizer *)recognizer
+{
+    CGPoint velocity = [recognizer velocityInView:recognizer.view];
+    CGPoint translation = [recognizer translationInView:recognizer.view];
+    
+    // Down direction
+    if (velocity.y > 0)
+    {
+        CGRect frame = recognizer.view.frame;
+        
+        if (frame.origin.y < 0)
+            recognizer.view.frame = CGRectMake(frame.origin.x, 0, frame.size.width, frame.size.height);
+        
+        if (recognizer.state == UIGestureRecognizerStateEnded)
+        {
+            [UIView animateWithDuration:0.25 animations:^
+             {
+
+                 self.summary_itemDescription.frame = CGRectMake(self.summary_itemDescription.frame.origin.x, 454, self.summary_itemDescription.frame.size.width, self.summary_itemDescription.frame.size.height);
+                 
+                 self.summary_creditView.frame = CGRectMake(self.summary_creditView.frame.origin.x, 567, self.summary_creditView.frame.size.width, self.summary_creditView.frame.size.height);
+                 
+                 self.summary_userImageView.frame = CGRectMake(self.summary_userImageView.frame.origin.x, self.summary_userImageView.frame.origin.y, 200, 200);
+                 
+                 self.summary_itemImageView.frame = CGRectMake(-40, 50, 464, 364);
+                 
+             } completion:^(BOOL finished) {
+                 
+                 
+             }];
+        }
+        else
+        {
+            
+            
+            self.summary_itemDescription.center = CGPointMake(self.summary_itemDescription.center.x, self.summary_itemDescription.center.y + translation.y);
+            
+            self.summary_creditView.center = CGPointMake(self.summary_creditView.center.x, self.summary_creditView.center.y + translation.y);
+            
+            self.summary_userImageView.frame = CGRectMake(self.summary_userImageView.frame.origin.x, self.summary_userImageView.frame.origin.y, self.summary_userImageView.frame.size.width + translation.y, self.summary_userImageView.frame.size.height + translation.y);
+            
+            
+            self.summary_itemImageView.frame = CGRectMake(self.summary_itemImageView.frame.origin.x - translation.y/2, self.summary_itemImageView.frame.origin.y, self.summary_itemImageView.frame.size.width + translation.y, self.summary_itemImageView.frame.size.height + translation.y);
+            
+            
+            [recognizer setTranslation:CGPointMake(0, 0) inView:recognizer.view];
+        }
+        [self circleImageView];
+    }
+    // Up direction
+    else
+    {
+        //CGRect frame = recognizer.view.frame;
+        
+        if (recognizer.state == UIGestureRecognizerStateEnded)
+        {
+            [UIView animateWithDuration:0.25 animations:^
+             {
+                 
+                 
+                 self.summary_itemDescription.frame = CGRectMake(self.summary_itemDescription.frame.origin.x, 278, self.summary_itemDescription.frame.size.width, self.summary_itemDescription.frame.size.height);
+                 
+                 self.summary_creditView.frame = CGRectMake(self.summary_creditView.frame.origin.x, 391, self.summary_creditView.frame.size.width, self.summary_creditView.frame.size.height);
+                 
+                 self.summary_userImageView.frame = CGRectMake(self.summary_userImageView.frame.origin.x, self.summary_userImageView.frame.origin.y, 100, 100);
+                 
+                 self.summary_itemImageView.frame = CGRectMake(20, 20, 343, 243);
+             }];
+        }
+        else
+        {
+            
+            self.summary_itemDescription.center = CGPointMake(self.summary_itemDescription.center.x, self.summary_itemDescription.center.y + translation.y);
+            
+            self.summary_creditView.center = CGPointMake(self.summary_creditView.center.x, self.summary_creditView.center.y + translation.y);
+            
+            self.summary_userImageView.frame = CGRectMake(self.summary_userImageView.frame.origin.x, self.summary_userImageView.frame.origin.y, self.summary_userImageView.frame.size.width + translation.y, self.summary_userImageView.frame.size.height + translation.y);
+            
+            self.summary_itemImageView.frame = CGRectMake(self.summary_itemImageView.frame.origin.x - translation.y/2, self.summary_itemImageView.frame.origin.y, self.summary_itemImageView.frame.size.width + translation.y, self.summary_itemImageView.frame.size.height + translation.y);
+            
+            [recognizer setTranslation:CGPointMake(0, 0) inView:recognizer.view];
+        }
+        [self circleImageView];
+    }
 }
 
 /*

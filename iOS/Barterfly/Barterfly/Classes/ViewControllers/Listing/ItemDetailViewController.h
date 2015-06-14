@@ -21,15 +21,15 @@
 /* Summary view */
 
 @property (weak, nonatomic) IBOutlet UIView *summaryContentView;
-@property (weak, nonatomic) IBOutlet UIImageView *summary_itemImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *summary_userImageView;
-@property (weak, nonatomic) IBOutlet UILabel *summary_itemDescription;
+@property (retain, nonatomic) IBOutlet UIImageView *summary_itemImageView;
+@property (retain, nonatomic) IBOutlet UIImageView *summary_userImageView;
+@property (retain, nonatomic) IBOutlet UILabel *summary_itemDescription;
 
-@property (weak, nonatomic) IBOutlet UIView *summary_creditView;
+@property (retain, nonatomic) IBOutlet UIView *summary_creditView;
 
-@property (weak, nonatomic) IBOutlet UILabel *summary_creditValueLabel;
+@property (retain, nonatomic) IBOutlet UILabel *summary_creditValueLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *summary_creditTitleLabel;
+@property (retain, nonatomic) IBOutlet UILabel *summary_creditTitleLabel;
 
 /* DETAILS VIEW */
 
