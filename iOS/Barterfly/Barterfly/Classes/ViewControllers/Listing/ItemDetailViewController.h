@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AICommonUtils.h"
+#import "azureMobileService.h"
 
-@interface ItemDetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, GBEmptyViewDelegate, UIWebViewDelegate>
+@interface ItemDetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, GBEmptyViewDelegate, UIWebViewDelegate, AzureMobileServiceDelegate>
 {
     LoadingScreen *screen;
+    azureMobileService *mobileService;
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -23,6 +25,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *summary_userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *summary_itemDescription;
 
+@property (weak, nonatomic) IBOutlet UIView *summary_creditView;
+
+@property (weak, nonatomic) IBOutlet UILabel *summary_creditValueLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *summary_creditTitleLabel;
 
 /* DETAILS VIEW */
 

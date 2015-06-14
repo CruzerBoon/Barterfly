@@ -84,18 +84,13 @@
 
 -(void)initAzureClient
 {
-    //azureAuthentication *auth = [[azureAuthentication alloc]init];
-    
     mobileService = [[azureMobileService alloc]initAzureClient];
     mobileService.delegate = self;
-    //mobileService.client.currentUser = [auth loadAuthenticationInfoWithUserForClient];
+
 }
 
 -(void)getData
 {
- 
-//   [mobileService getDataFromTableWithName:[AICommonUtils getAzureTableNameForTable:tableTradeItemImage]];
-    
     [mobileService getFullListingItemForTableWithName:[AICommonUtils getAzureTableNameForTable:tableAllTradeItem]];
     
     [self createLoadingScreen];
@@ -309,18 +304,17 @@
 {
     NSMutableArray *tempArray = (NSMutableArray *)object;
     
-    NSLog(@"result: %@", tempArray);
+    NSLog(@"result featured: %@", tempArray);
     
     [self dismissLoadingScreen];
-    
-    [self getItemImage:tempArray];
+
 }
 
 -(void)azureMobileServiceDidFinishGetDataForSingleItem:(id)object
 {
     NSDictionary *tempdic = (NSDictionary *)object;
     
-    NSLog(@"result: %@", tempdic);
+    NSLog(@"result featuredSingleItem: %@", tempdic);
     
     [self dismissLoadingScreen];
 }

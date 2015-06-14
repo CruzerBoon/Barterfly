@@ -70,6 +70,9 @@
     if ([azure loadAuthenticationInfoWithUserForClient] != nil)
     {
         self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateInitialViewController];
+        
+        UITabBarController *tab = (UITabBarController *)self.window.rootViewController;
+        [tab setSelectedIndex:1];
     }
     else
     {

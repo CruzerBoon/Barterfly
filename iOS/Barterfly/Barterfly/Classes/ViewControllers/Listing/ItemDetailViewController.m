@@ -15,6 +15,8 @@
 {
     EmptyViewWithPullDownGesture *emptyView;
     UIWebView *web;
+    
+    NSMutableArray *photoArray;
 }
 
 @end
@@ -39,22 +41,40 @@
 
 -(void)initializeStartingVariable
 {
+    photoArray = [[NSMutableArray alloc]init];
+    
     self.summary_itemImageView.layer.cornerRadius = self.summary_itemImageView.frame.size.height / 7;
     self.summary_itemImageView.clipsToBounds = YES;
     
     self.summary_userImageView.layer.cornerRadius = self.summary_userImageView.frame.size.height / 2;
     self.summary_userImageView.clipsToBounds = YES;
     
-    self.summary_itemDescription.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12.0];
+    self.summary_itemDescription.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:16.0];
     self.summary_itemDescription.attributedText = [AICommonUtils createStringWithSpacing:self.summary_itemDescription.text spacngValue:0 withUnderLine:NO];
+    self.summary_itemDescription.numberOfLines = 0;
+    self.summary_itemDescription.layer.cornerRadius = self.summary_itemDescription.frame.size.height / 10;
+    self.summary_itemDescription.clipsToBounds = YES;
+    self.summary_itemDescription.backgroundColor = [AICommonUtils getAIColorWithRGB0_32_44:0.1];
     [self.summary_itemDescription sizeToFit];
+    
+    self.summary_creditView.layer.cornerRadius = self.summary_creditView.frame.size.height / 2;
+    self.summary_creditView.clipsToBounds = YES;
+    
+    self.summary_creditValueLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:30];
+    self.summary_creditValueLabel.textColor = [AICommonUtils getAIColorWithRGB000:1];
+    self.summary_creditValueLabel.adjustsFontSizeToFitWidth = YES;
+    
+    self.summary_creditTitleLabel.text = @"Credit\nPoint";
+    self.summary_creditTitleLabel.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12];
+    self.summary_creditTitleLabel.textColor = [AICommonUtils getAIColorWithRGB000:0.5];
+    self.summary_creditTitleLabel.attributedText = [AICommonUtils createStringWithSpacing:self.summary_creditTitleLabel.text spacngValue:2.0 withUnderLine:NO];
     
     for (id object in self.details_scrollContentView.subviews)
     {
         if ([object isKindOfClass:[UILabel class]])
         {
             UILabel *label = (UILabel *)object;
-            label.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12];
+            label.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:16];
             label.attributedText = [AICommonUtils createStringWithSpacing:label.text spacngValue:0 withUnderLine:NO];
             label.textColor = [AICommonUtils getAIColorWithRGB000:0.4];
         }
@@ -62,12 +82,16 @@
         else if ([object isKindOfClass:[UITextField class]])
         {
             UITextField *label = (UITextField *)object;
-            label.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:12];
+            label.font = [AICommonUtils getCustomTypeface:fontHelveticaNeue ofSize:16];
             label.attributedText = [AICommonUtils createStringWithSpacing:label.text spacngValue:0 withUnderLine:NO];
             label.textColor = [AICommonUtils getAIColorWithRGB000:0.69];
             label.userInteractionEnabled = NO;
         }
     }
+    
+    self.details_scrollContentView.backgroundColor = [AICommonUtils getAIColorWithRGB0_32_44:0.1];
+    self.details_scrollContentView.layer.cornerRadius = self.details_scrollContentView.frame.size.height / 7;
+    self.details_scrollContentView.clipsToBounds = YES;
     
     self.details_itemImageView.layer.cornerRadius = self.details_itemImageView.frame.size.height / 7;
     self.details_itemImageView.clipsToBounds = YES;
@@ -83,6 +107,50 @@
     self.photo_collectionView.dataSource = self;
     
     [self.photo_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"photo_collectionView"];
+    
+    [self initAzureClient];
+    
+    [self setDataIntoDisplay];
+}
+
+-(void)initAzureClient
+{
+    mobileService = [[azureMobileService alloc]initAzureClient];
+    mobileService.delegate = self;
+    
+    [self getItemImage];
+}
+
+-(void)getItemImage
+{
+    [mobileService getSingleItemUsingAPIForTableWithName:[AICommonUtils getAzureTableNameForTable:tableTradeItemImage] queryString:[NSString stringWithFormat:@"tradeItemId=%@", [self.itemDictionary objectForKey:@"id"]]];
+    
+    [self createLoadingScreen];
+}
+
+-(void)setDataIntoDisplay
+{
+    self.summary_userImageView.image = [AICommonUtils getImageFromUrl:[self.itemDictionary objectForKey:@"userProfileImg"]];
+    
+    self.summary_itemDescription.text = [NSString stringWithFormat:@"Item Name\n%@\n\nTrader\n%@\n\nCategory\n%@", [self.itemDictionary objectForKey:@"name"], [self.itemDictionary objectForKey:@"userName"], [AICommonUtils getCategoryNameForId:[[self.itemDictionary objectForKey:@"category"] integerValue]]];
+    
+    [self.summary_itemDescription sizeToFit];
+    
+    self.summary_creditValueLabel.text = [NSString stringWithFormat:@"%@", [self.itemDictionary objectForKey:@"creditpointFloor"]];
+    
+    NSString *tempDateString = [NSString stringWithFormat:@"%@", [self.itemDictionary objectForKey:@"postExpireDate"]];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"yyyy-mm-dd";
+    
+    NSDate *tempDate = [formatter dateFromString:tempDateString];
+    
+    self.details_itemNameField.text = [NSString stringWithFormat:@"%@", [self.itemDictionary objectForKey:@"name"]];
+    self.details_itemBrandField.text = [NSString stringWithFormat:@"%@", [self.itemDictionary objectForKey:@"condition"]];
+    self.details_itemExpiredDateFied.text = [NSString stringWithFormat:@"%@", tempDate];
+    self.details_itemPurchasedDateField.text = [NSString stringWithFormat:@"$%.2f", [[self.itemDictionary objectForKey:@"purchasePrice"] doubleValue]];
+    self.details_itemReasonField.text = [NSString stringWithFormat:@"%@", [self.itemDictionary objectForKey:@"exchangeMethod"]];
+
 }
 
 /*
@@ -179,7 +247,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return [photoArray count];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -220,7 +288,7 @@
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photo_collectionView" forIndexPath:indexPath];
             
             imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-            imageView.image = [UIImage imageNamed:@"barterCyan"];
+            imageView.image = [AICommonUtils getImageFromUrl:[[photoArray objectAtIndex:indexPath.row] objectForKey:@"imgUrl"]];
             imageView.layer.cornerRadius = imageView.frame.size.height / 7;
             imageView.clipsToBounds = YES;
             
@@ -266,6 +334,36 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self dismissLoadingScreen];
+}
+
+
+
+#pragma mark - Azure Mobile Service Delegate
+
+-(void)azureMobileServiceDidFinishGetDataForList:(id)object
+{
+    
+}
+
+-(void)azureMobileServiceDidFinishGetDataForSingleItem:(id)object
+{
+    NSArray *tempdic = (NSArray *)object;
+    
+    NSLog(@"result: %@", tempdic);
+    
+    [self dismissLoadingScreen];
+    
+    self.summary_itemImageView.image = [AICommonUtils getImageFromUrl:[[tempdic objectAtIndex:0] objectForKey:@"imgUrl"]];
+    self.details_itemImageView.image = self.photo_displayImageView.image = self.summary_itemImageView.image;
+    
+    [photoArray addObjectsFromArray:tempdic];
+    
+    [self.photo_collectionView reloadData];
+}
+
+-(void)azureMobileServiceDidFailWithError:(NSError *)error
 {
     [self dismissLoadingScreen];
 }

@@ -9,7 +9,9 @@
 #import "NearbyMeViewController.h"
 
 @interface NearbyMeViewController ()
-
+{
+    NSMutableArray *listinArray;
+}
 @end
 
 @implementation NearbyMeViewController
@@ -27,6 +29,8 @@
     [super viewDidAppear:animated];
     
     [self initializeMap];
+    
+    [self performSelector:@selector(initAzureClient) withObject:nil afterDelay:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,13 +61,27 @@
 
     coord = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
     
-    MKMapCamera *camera = [MKMapCamera cameraLookingAtCenterCoordinate:coord fromEyeCoordinate:coord eyeAltitude:5000];
-    [self.mapView setCamera:camera animated:YES];
+    MKMapCamera *camera = [MKMapCamera cameraLookingAtCenterCoordinate:coord fromEyeCoordinate:coord eyeAltitude:30000];
+    [self.mapView setCamera:camera animated:NO];
     
     MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
     self.navigationItem.rightBarButtonItem = buttonItem;
     
-    [self addAnnotation];
+}
+
+-(void)initAzureClient
+{
+    mobileService = [[azureMobileService alloc]initAzureClient];
+    mobileService.delegate = self;
+    
+    [self getData];
+}
+
+-(void)getData
+{
+    [mobileService getFullListingItemForTableWithName:[AICommonUtils getAzureTableNameForTable:tableAllTradeItem]];
+    
+    [self createLoadingScreen];
 }
 
 /*
@@ -81,21 +99,55 @@
     
 }
 
+
+-(void)createLoadingScreen
+{
+    if (!screen)
+    {
+        screen = [[LoadingScreen alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) forSuperView:self.view atTarget:self];
+        screen.backgroundColor = [AICommonUtils getAIColorWithRGB0_32_44:0.4];
+        [self.view addSubview:screen];
+    }
+}
+
+-(void)dismissLoadingScreen
+{
+    if (screen)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            screen.alpha = 0;
+        }completion:^(BOOL finished){
+            [screen removeFromSuperview];
+            screen = nil;
+        }];
+    }
+}
+
+
+
 -(void)addAnnotation
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
     
-    CLLocationCoordinate2D coord;
-    
-    coord = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude + 0.0020, self.locationManager.location.coordinate.longitude + 0.0020);
-    
-    MKPointAnnotation *LocationAnnotation = [[MKPointAnnotation alloc]init];
-    LocationAnnotation.coordinate = coord;
-    LocationAnnotation.title = @"Trader";
-    
-    
-    [self.mapView addAnnotation:LocationAnnotation];
+    for (int i = 0; i < [listinArray count]; i++)
+    {
+        NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+        tempdic = [[listinArray objectAtIndex:i] mutableCopy];
+        
+        CLLocationCoordinate2D coord;
+        
+        coord = CLLocationCoordinate2DMake([[tempdic objectForKey:@"latitude"] doubleValue], [[tempdic objectForKey:@"longitude"] doubleValue]);
+        
+        MKPointAnnotation *LocationAnnotation = [[MKPointAnnotation alloc]init];
+        LocationAnnotation.coordinate = coord;
+        LocationAnnotation.title = [tempdic objectForKey:@"name"];
+        LocationAnnotation.subtitle = [tempdic objectForKey:@"userName"];
+        
+        [self.mapView addAnnotation:LocationAnnotation];
+    }
 }
+
+
 
 #pragma mark - core location manager delegate
 
@@ -140,14 +192,30 @@
         MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"merchantMarker"];
         annotationView.canShowCallout = YES;
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        annotationView.image = [UIImage imageNamed:@"map_pin"];
+        annotationView.image = [UIImage imageNamed:@"big_map_pin"];
         annotationView.centerOffset = CGPointMake(0, -20); // To rectify the view's position off set due to the size of image
         
         // Setup merchant image view
-        UIImageView *merchantImageView = [[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 26, 26)];
+        UIImageView *merchantImageView = [[UIImageView alloc] initWithFrame:CGRectMake(4, 4, 52, 52)];
         merchantImageView.layer.cornerRadius = merchantImageView.frame.size.height / 2;
         merchantImageView.clipsToBounds = YES;
         merchantImageView.image = [UIImage imageNamed:@"barterCyan"];
+        
+        for (NSMutableDictionary *dic in listinArray)
+        {
+            if ([[dic objectForKey:@"name"] isEqualToString:annotation.title] && [[dic objectForKey:@"userName"] isEqualToString:annotation.subtitle])
+            {
+                NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+                tempArray = [dic objectForKey:@"tradeItemImg"];
+                
+                NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+                tempdic = [tempArray objectAtIndex:0];
+                
+                merchantImageView.image = [AICommonUtils getImageFromUrl:[tempdic objectForKey:@"imgUrl"]];
+                
+                break;
+            }
+        }
         
         // Add merchant image view to pin
         [annotationView addSubview:merchantImageView];
@@ -163,8 +231,56 @@
 {
     if (![view.annotation isKindOfClass:[MKUserLocation class]])
     {
-        [AICommonUtils navigateToItemDetailsPageWithNavigationController:self.navigationController forDictionary:nil];
+        NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+        
+        for (NSMutableDictionary *dic in listinArray)
+        {
+            if ([[dic objectForKey:@"name"] isEqualToString:view.annotation.title] && [[dic objectForKey:@"userName"] isEqualToString:view.annotation.subtitle])
+            {
+                tempdic = [dic mutableCopy];
+                
+                [AICommonUtils navigateToItemDetailsPageWithNavigationController:self.navigationController forDictionary:tempdic];
+                
+                break;
+            }
+        }
+        
+        
     }
+}
+
+-(void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
+{
+    [self dismissLoadingScreen];
+}
+
+-(void)mapViewWillStartRenderingMap:(MKMapView *)mapView
+{
+    [self createLoadingScreen];
+}
+
+
+#pragma mark - Azure Mobile Service Delegate
+
+-(void)azureMobileServiceDidFinishGetDataForList:(id)object
+{
+    listinArray = [(NSMutableArray *)object mutableCopy];
+    
+    NSLog(@"result nearbyme: %@", listinArray);
+    
+    [self dismissLoadingScreen];
+    
+    [self addAnnotation];
+}
+
+-(void)azureMobileServiceDidFinishGetDataForSingleItem:(id)object
+{
+    
+}
+
+-(void)azureMobileServiceDidFailWithError:(NSError *)error
+{
+    [self dismissLoadingScreen];
 }
 
 @end

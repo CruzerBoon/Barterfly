@@ -24,6 +24,15 @@
 		288137211B2C675B00870331 /* ListingTabIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881371E1B2C675B00870331 /* ListingTabIcon@3x.png */; };
 		288137241B2C6F2300870331 /* LoadingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 288137231B2C6F2300870331 /* LoadingScreen.m */; };
 		288137271B2C9BE100870331 /* EmptyViewWithPullDownGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 288137261B2C9BE100870331 /* EmptyViewWithPullDownGesture.m */; };
+		2881372E1B2CCCE700870331 /* Nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137281B2CCCE700870331 /* Nearby.png */; };
+		2881372F1B2CCCE700870331 /* Nearby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137291B2CCCE700870331 /* Nearby@2x.png */; };
+		288137301B2CCCE700870331 /* Nearby@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881372A1B2CCCE700870331 /* Nearby@3x.png */; };
+		288137311B2CCCE700870331 /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881372B1B2CCCE700870331 /* Profile.png */; };
+		288137321B2CCCE700870331 /* Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881372C1B2CCCE700870331 /* Profile@2x.png */; };
+		288137331B2CCCE700870331 /* Profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881372D1B2CCCE700870331 /* Profile@3x.png */; };
+		288137361B2CD2FA00870331 /* big_map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137341B2CD2FA00870331 /* big_map_pin.png */; };
+		288137371B2CD2FA00870331 /* big_map_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 288137351B2CD2FA00870331 /* big_map_pin@2x.png */; };
+		2881373B1B2CDDBD00870331 /* dashboardTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2881373A1B2CDDBD00870331 /* dashboardTabBarViewController.m */; };
 		28E1A74A1B2BCB9F00805AD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A7491B2BCB9F00805AD8 /* main.m */; };
 		28E1A74D1B2BCB9F00805AD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A74C1B2BCB9F00805AD8 /* AppDelegate.m */; };
 		28E1A7501B2BCB9F00805AD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1A74F1B2BCB9F00805AD8 /* ViewController.m */; };
@@ -89,6 +98,16 @@
 		288137231B2C6F2300870331 /* LoadingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingScreen.m; path = Classes/Common/Utils/LoadingScreen.m; sourceTree = "<group>"; };
 		288137251B2C9BE100870331 /* EmptyViewWithPullDownGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyViewWithPullDownGesture.h; path = Classes/Common/Utils/EmptyViewWithPullDownGesture.h; sourceTree = "<group>"; };
 		288137261B2C9BE100870331 /* EmptyViewWithPullDownGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyViewWithPullDownGesture.m; path = Classes/Common/Utils/EmptyViewWithPullDownGesture.m; sourceTree = "<group>"; };
+		288137281B2CCCE700870331 /* Nearby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nearby.png; path = Images/tabBarIcon/Nearby.png; sourceTree = "<group>"; };
+		288137291B2CCCE700870331 /* Nearby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Nearby@2x.png"; path = "Images/tabBarIcon/Nearby@2x.png"; sourceTree = "<group>"; };
+		2881372A1B2CCCE700870331 /* Nearby@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Nearby@3x.png"; path = "Images/tabBarIcon/Nearby@3x.png"; sourceTree = "<group>"; };
+		2881372B1B2CCCE700870331 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Profile.png; path = Images/tabBarIcon/Profile.png; sourceTree = "<group>"; };
+		2881372C1B2CCCE700870331 /* Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Profile@2x.png"; path = "Images/tabBarIcon/Profile@2x.png"; sourceTree = "<group>"; };
+		2881372D1B2CCCE700870331 /* Profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Profile@3x.png"; path = "Images/tabBarIcon/Profile@3x.png"; sourceTree = "<group>"; };
+		288137341B2CD2FA00870331 /* big_map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_map_pin.png; path = Images/ExampleIcons/big_map_pin.png; sourceTree = "<group>"; };
+		288137351B2CD2FA00870331 /* big_map_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "big_map_pin@2x.png"; path = "Images/ExampleIcons/big_map_pin@2x.png"; sourceTree = "<group>"; };
+		288137391B2CDDBD00870331 /* dashboardTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dashboardTabBarViewController.h; path = Classes/ViewControllers/TabBarController/dashboardTabBarViewController.h; sourceTree = "<group>"; };
+		2881373A1B2CDDBD00870331 /* dashboardTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dashboardTabBarViewController.m; path = Classes/ViewControllers/TabBarController/dashboardTabBarViewController.m; sourceTree = "<group>"; };
 		28E1A7441B2BCB9F00805AD8 /* Barterfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barterfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E1A7481B2BCB9F00805AD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E1A7491B2BCB9F00805AD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -189,8 +208,23 @@
 				2881371C1B2C675B00870331 /* ListingTabIcon.png */,
 				2881371D1B2C675B00870331 /* ListingTabIcon@2x.png */,
 				2881371E1B2C675B00870331 /* ListingTabIcon@3x.png */,
+				288137281B2CCCE700870331 /* Nearby.png */,
+				288137291B2CCCE700870331 /* Nearby@2x.png */,
+				2881372A1B2CCCE700870331 /* Nearby@3x.png */,
+				2881372B1B2CCCE700870331 /* Profile.png */,
+				2881372C1B2CCCE700870331 /* Profile@2x.png */,
+				2881372D1B2CCCE700870331 /* Profile@3x.png */,
 			);
 			name = tabBarIcon;
+			sourceTree = "<group>";
+		};
+		288137381B2CDD8200870331 /* TabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				288137391B2CDDBD00870331 /* dashboardTabBarViewController.h */,
+				2881373A1B2CDDBD00870331 /* dashboardTabBarViewController.m */,
+			);
+			name = TabbarController;
 			sourceTree = "<group>";
 		};
 		28E1A73B1B2BCB9F00805AD8 = {
@@ -298,6 +332,7 @@
 		28E1A7B01B2BF6D300805AD8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				288137381B2CDD8200870331 /* TabbarController */,
 				28E1A7F61B2C274400805AD8 /* NearbyMe */,
 				28E1A7D81B2BF81C00805AD8 /* RequestTrade */,
 				28E1A7D71B2BF81600805AD8 /* Profile */,
@@ -349,6 +384,8 @@
 		28E1A7BE1B2BF74400805AD8 /* ExampleIcons */ = {
 			isa = PBXGroup;
 			children = (
+				288137341B2CD2FA00870331 /* big_map_pin.png */,
+				288137351B2CD2FA00870331 /* big_map_pin@2x.png */,
 				288137021B2C4CF600870331 /* map_pin.png */,
 				288137031B2C4CF600870331 /* map_pin@2x.png */,
 				28E1A7F21B2C12E800805AD8 /* anonymous_dark.png */,
@@ -503,7 +540,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				288137181B2C571500870331 /* BarterflyAppIcon60@3x.png in Resources */,
+				288137361B2CD2FA00870331 /* big_map_pin.png in Resources */,
 				288137141B2C571500870331 /* BarterflyAppIcon40.png in Resources */,
+				2881372E1B2CCCE700870331 /* Nearby.png in Resources */,
 				28E1A7F51B2C12E800805AD8 /* anonymous_dark@2x.png in Resources */,
 				28E1A7C51B2BF75000805AD8 /* barterCyan@3x.png in Resources */,
 				28E1A7C31B2BF75000805AD8 /* barterCyan.png in Resources */,
@@ -513,7 +552,9 @@
 				28E1A7ED1B2C0CE000805AD8 /* dividing_line_horizontal_dark.png in Resources */,
 				288137041B2C4CF600870331 /* map_pin.png in Resources */,
 				288137121B2C571500870331 /* BarterflyAppIcon29@2x.png in Resources */,
+				288137301B2CCCE700870331 /* Nearby@3x.png in Resources */,
 				288137161B2C571500870331 /* BarterflyAppIcon40@3x.png in Resources */,
+				2881372F1B2CCCE700870331 /* Nearby@2x.png in Resources */,
 				28E1A7F41B2C12E800805AD8 /* anonymous_dark.png in Resources */,
 				28E1A7C61B2BF75000805AD8 /* barterWide.png in Resources */,
 				28E1A7531B2BCB9F00805AD8 /* Main.storyboard in Resources */,
@@ -523,11 +564,15 @@
 				288137151B2C571500870331 /* BarterflyAppIcon40@2x.png in Resources */,
 				2881371F1B2C675B00870331 /* ListingTabIcon.png in Resources */,
 				28E1A7C41B2BF75000805AD8 /* barterCyan@2x.png in Resources */,
+				288137311B2CCCE700870331 /* Profile.png in Resources */,
 				288137211B2C675B00870331 /* ListingTabIcon@3x.png in Resources */,
 				288137171B2C571500870331 /* BarterflyAppIcon60.png in Resources */,
 				288137051B2C4CF600870331 /* map_pin@2x.png in Resources */,
+				288137321B2CCCE700870331 /* Profile@2x.png in Resources */,
+				288137371B2CD2FA00870331 /* big_map_pin@2x.png in Resources */,
 				28E1A7551B2BCB9F00805AD8 /* Images.xcassets in Resources */,
 				288137131B2C571500870331 /* BarterflyAppIcon29@3x.png in Resources */,
+				288137331B2CCCE700870331 /* Profile@3x.png in Resources */,
 				28E1A7BD1B2BF74000805AD8 /* facebookLogin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +600,7 @@
 				28E1A7E41B2BF96500805AD8 /* RequestTradeViewController.m in Sources */,
 				28E1A7F11B2C0FB200805AD8 /* ItemDetailViewController.m in Sources */,
 				28E1A7DB1B2BF8AE00805AD8 /* LoginViewController.m in Sources */,
+				2881373B1B2CDDBD00870331 /* dashboardTabBarViewController.m in Sources */,
 				28E1A7CC1B2BF76800805AD8 /* AICommonUtils.m in Sources */,
 				28E1A7E71B2BF99500805AD8 /* ListingViewController.m in Sources */,
 				28E1A7D31B2BF7DF00805AD8 /* azureAuthentication.m in Sources */,

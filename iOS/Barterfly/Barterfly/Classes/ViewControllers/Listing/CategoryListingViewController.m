@@ -173,6 +173,14 @@
             imageView.layer.cornerRadius = imageView.frame.size.height / 7;
             imageView.clipsToBounds = YES;
             
+            NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+            tempArray = [[listinArray objectAtIndex:indexPath.row] objectForKey:@"tradeItemImg"];
+            
+            NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+            tempdic = [tempArray objectAtIndex:0];
+            
+            imageView.image = [AICommonUtils getImageFromUrl:[tempdic objectForKey:@"imgUrl"]];
+            
             [cell addSubview:imageView];
         }
         

@@ -10,8 +10,7 @@
 
 @interface ListingViewController ()
 {
-    NSMutableArray *listinArray, *urlArray;
-    NSInteger getImageIndex;
+    NSMutableArray *listinArray;
 }
 @end
 
@@ -41,8 +40,6 @@
 
 -(void)initializeStartingVariable
 {
-    urlArray = [[NSMutableArray alloc]init];
-    
     self.searchBar.delegate = self;
     
     self.collectionView.delegate = self;
@@ -64,16 +61,6 @@
 -(void)getData
 {
     [mobileService getFullListingItemForTableWithName:[AICommonUtils getAzureTableNameForTable:tableAllTradeItem]];
-    
-    [self createLoadingScreen];
-}
-
--(void)getItemImage:(NSMutableArray *)array
-{
-    NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
-    tempdic = [[array objectAtIndex:getImageIndex] mutableCopy];
-    
-    [mobileService getSingleItemUsingAPIForTableWithName:[AICommonUtils getAzureTableNameForTable:tableTradeItemImage] queryString:[NSString stringWithFormat:@"tradeItemId=%@", [tempdic objectForKey:@"id"]]];
     
     [self createLoadingScreen];
 }
@@ -119,13 +106,13 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 
-    return 10;
+    return 8;
 
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 5;
+    return 2;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
@@ -135,7 +122,7 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 0;
+    return 10;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -143,7 +130,7 @@
     
     if (collectionView == self.collectionView)
     {
-        return CGSizeMake((collectionView.frame.size.width)/5, (collectionView.frame.size.width)/(5));
+        return CGSizeMake((collectionView.frame.size.width)/4, (collectionView.frame.size.width)/(4));
     }
     
     return CGSizeMake(10, 10);
@@ -163,7 +150,7 @@
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"optionCollectionView" forIndexPath:indexPath];
             
             
-            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, cell.frame.size.width - 10, cell.frame.size.height - 10)];
+            titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, (collectionView.frame.size.width)/4, (collectionView.frame.size.width)/4)];
             titleLabel.tag = 1;
             titleLabel.textAlignment = NSTextAlignmentCenter;
             titleLabel.font = [UIFont systemFontOfSize:22];
@@ -175,19 +162,15 @@
             imageView = [[UIImageView alloc]initWithFrame:titleLabel.frame];
             imageView.layer.cornerRadius = imageView.frame.size.height / 7;
             imageView.clipsToBounds = YES;
+            imageView.image = [UIImage imageNamed:@"barterCyan"];
             
-            if ([urlArray count] == [listinArray count] && [urlArray count] > 0)
-            {
-                NSURL *url = [NSURL URLWithString:[[urlArray objectAtIndex:indexPath.row] objectForKey:@"imgUrl"]];
-                NSData *data = [NSData dataWithContentsOfURL:url];
-                UIImage *imag = [[UIImage alloc]initWithData:data];
-                
-                imageView.image = imag;
-            }
-            else
-            {
-                imageView.image = [UIImage imageNamed:@"barterCyan"];
-            }
+            NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+            tempArray = [[listinArray objectAtIndex:indexPath.row] objectForKey:@"tradeItemImg"];
+            
+            NSMutableDictionary *tempdic = [[NSMutableDictionary alloc]init];
+            tempdic = [tempArray objectAtIndex:0];
+            
+            imageView.image = [AICommonUtils getImageFromUrl:[tempdic objectForKey:@"imgUrl"]];
             
             [cell addSubview:imageView];
         }
@@ -271,6 +254,10 @@
             {
                 headerTitle.text = [NSString stringWithFormat:@"%@", [AICommonUtils getCategoryNameForId:indexPath.section + 1]];
             }
+            else if (indexPath.section == 1)
+            {
+                headerTitle.text = @"BOOKS - NON-FICTION";
+            }
             
             //reuseView.backgroundColor = [UIColor cyanColor];
             return reuseView;
@@ -346,38 +333,17 @@
 {
     listinArray = [(NSMutableArray *)object mutableCopy];
     
-    NSLog(@"result: %@", listinArray);
+    NSLog(@"result listing: %@", listinArray);
     
     [self dismissLoadingScreen];
     
     [self.collectionView reloadData];
-    
-    getImageIndex = 0;
-    //[self getItemImage:listinArray];
 }
 
 -(void)azureMobileServiceDidFinishGetDataForSingleItem:(id)object
 {
-    NSArray *tempdic = (NSArray *)object;
     
-    NSLog(@"result: %@", tempdic);
-    
-    [urlArray addObject:[tempdic objectAtIndex:0]];
-    
-    getImageIndex++;
-    
-    [self dismissLoadingScreen];
-    
-    if (getImageIndex < [listinArray count])
-        [self getItemImage:listinArray];
-    else if ([urlArray count] == [listinArray count])
-    {
-        [self.collectionView reloadData];
-        
-        NSLog(@"url: %@", urlArray);
-    }
 }
-
 
 -(void)azureMobileServiceDidFailWithError:(NSError *)error
 {

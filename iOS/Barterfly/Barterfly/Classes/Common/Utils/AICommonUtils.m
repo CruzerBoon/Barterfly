@@ -292,5 +292,10 @@
     return name;
 }
 
-
++(UIImage *)getImageFromUrl:(NSString *)urlString
+{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    return [[UIImage alloc]initWithData:data];
+}
 @end

@@ -10,8 +10,13 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "AICommonUtils.h"
+#import "azureMobileService.h"
 
-@interface NearbyMeViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface NearbyMeViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, AzureMobileServiceDelegate>
+{
+    azureMobileService *mobileService;
+    LoadingScreen *screen;
+}
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 

@@ -59,7 +59,9 @@
 
 -(void)redirectToDashboard
 {
-    UIViewController *rootVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"dashboardTabbarController"];
+    UITabBarController *rootVC = (UITabBarController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"dashboardTabbarController"];
+    rootVC.selectedIndex = 1;
+    
     [self presentViewController:rootVC animated:YES completion:nil];
 }
 

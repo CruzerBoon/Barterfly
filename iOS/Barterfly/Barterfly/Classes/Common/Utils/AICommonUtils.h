@@ -51,4 +51,6 @@
 +(NSString *)getAzureTableNameForTable:(azureTableName)tableName;
 
 +(NSString *)getCategoryNameForId:(NSInteger)categoryId;
+
++(UIImage *)getImageFromUrl:(NSString *)urlString;
 @end

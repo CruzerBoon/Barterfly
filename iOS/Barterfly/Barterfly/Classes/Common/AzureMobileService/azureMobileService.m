@@ -87,7 +87,7 @@
          }
          else
          {
-             NSLog(@"result: %@", result.items);
+             //NSLog(@"result: %@", result.items);
              
              [tempArray addObjectsFromArray:result.items];
              
@@ -169,7 +169,7 @@
         }
         else
         {
-            NSLog(@"result: %@", dictionary);
+            //NSLog(@"result: %@", dictionary);
             tempdic = dictionary;
             
             if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetDataForSingleItem:)])
@@ -198,7 +198,7 @@
         }
         else
         {
-            NSLog(@"result: %@", result.items);
+            //NSLog(@"result: %@", result.items);
             
             if ([self.delegate respondsToSelector:@selector(azureMobileServiceDidFinishGetDataForSingleItem:)])
             {
