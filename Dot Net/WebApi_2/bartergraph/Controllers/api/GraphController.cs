@@ -61,7 +61,7 @@ namespace bartergraph.Controllers.api
                 con.Open();
 
                 var command = con.CreateCommand();
-                command.CommandText = "SELECT A.TAG, A.NAME, A.USERNAME, A.ID FROM ANGEL2015KL.TRADEITEMS A WHERE A.ID = @ID ";
+                command.CommandText = "SELECT A.TAG, A.NAME, A.USERNAME, A.ID, A.USERPROFILEIMG, B.IMGURL FROM ANGEL2015KL.TRADEITEMS A, ANGEL2015KL.TRADEITEMIMAGES B WHERE B.TRADEITEM = A.ID AND A.ID = @ID ";
                 command.Parameters.AddWithValue("@ID", id);
 
                 var reader = command.ExecuteReader();
@@ -74,6 +74,8 @@ namespace bartergraph.Controllers.api
                     result.Name = reader.GetString(1);
                     result.UserName = reader.GetString(2);
                     result.TradeId = reader.GetString(3);
+                    result.UserProfileImg = reader.GetString(4);
+                    result.ItemImgUrl = reader.GetString(5);
                 }
                 con.Close();
             }
@@ -97,7 +99,7 @@ namespace bartergraph.Controllers.api
                 con.Open();
 
                 var command = con.CreateCommand();
-                command.CommandText = "SELECT A.TAG, A.NAME, A.USERNAME, A.ID FROM ANGEL2015KL.TRADEITEMS A WHERE A.TAG = @TAG ";
+                command.CommandText = "SELECT A.TAG, A.NAME, A.USERNAME, A.ID, A.USERPROFILEIMG, B.IMGURL FROM ANGEL2015KL.TRADEITEMS A, ANGEL2015KL.TRADEITEMIMAGES B WHERE B.TRADEITEM = A.ID AND A.TAG = @TAG ";
                 command.Parameters.AddWithValue("@TAG", tag);
 
                 var reader = command.ExecuteReader();
@@ -111,6 +113,8 @@ namespace bartergraph.Controllers.api
                     tempResult.Name = reader.GetString(1);
                     tempResult.UserName = reader.GetString(2);
                     tempResult.TradeId = reader.GetString(3);
+                    tempResult.UserProfileImg = reader.GetString(4);
+                    tempResult.ItemImgUrl = reader.GetString(5);
 
                     result.Add(tempResult);
                 }
@@ -179,6 +183,9 @@ namespace bartergraph.Controllers.api
 
                         if (inListMatchedItem != null)
                         {
+                            if (inListMatchedItem.TradeId == itm.TradeId)
+                                continue;
+
                             itm.TargetId = inListMatchedItem.TargetId;
                             result.Add(itm);
                             continue;
@@ -190,6 +197,7 @@ namespace bartergraph.Controllers.api
                         Models.GraphDataModels matchedItem = new Models.GraphDataModels();
                         matchedItem.TargetId = itm.TargetId;
                         matchedItem.Tag = itm.Tag;
+                        matchedItem.TradeId = itm.TradeId;
                         _matchedTrading.Add(matchedItem);
 
                         var requestData = GetRequestData(itm.TradeId);

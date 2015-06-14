@@ -1,0 +1,75 @@
+﻿
+<style type="text/css">
+    .profileName {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        position: absolute;
+        width: 100%;
+        background: white;
+    }
+
+    .itemPanel {
+        position: relative;
+        float: left;
+    }
+
+    h3 {
+        padding: 5px;
+        margin-bottom: 0px;
+    }
+</style>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div id="mynetwork"></div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/graph/randomColor.js"></script>
+
+<script type="text/javascript">
+    function GraphData(data) {
+        this.Name = data.Name;
+        this.Tag = data.Tag;
+        this.TradeId = data.TradeId;
+        this.UserName = data.UserName;
+        this.TargetId = data.TargetId;
+        this.UserProfileImg = data.UserProfileImg;
+        this.ItemImgUrl = data.ItemImgUrl;
+    }
+
+    var mappedItems;
+
+    $(function () {
+        var itemId = window.location.hash.substr(1);
+
+        //AC53DC06-5067-4A52-8D73-1C9AE35C481F
+        var colorList = randomColor({ luminosity: 'light', count: 40 });
+
+        $.ajax("/api/graph/data?id=" + itemId, {
+            type: "get",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                mappedItems = $.map(result, function (data) { return new GraphData(data) });
+
+                if (mappedItems != null && mappedItems.length > 0) {
+                    for (var i = 0; i < mappedItems.length ; i++) {
+                        if (i == 0) {
+                            $("#mynetwork").append("<div class='row'><h3 style='background-color: " + colorList[i] + ";'>" + mappedItems[i].Name + "</h3><div id='" + mappedItems[i].TradeId + "' class='itemPanel' ><img src='" + mappedItems[i].UserProfileImg + "'/><span class='profileName'>" + mappedItems[i].UserName + "</span><img src='" + mappedItems[i].ItemImgUrl + "'/></div></div> ");
+                        }
+                        else {
+                            if ($("#" + mappedItems[i].TargetId).parent().next().length > 0) {
+                                $("#" + mappedItems[i].TargetId).parent().append("<div id='" + mappedItems[i].TradeId + "' class='itemPanel'><img src='" + mappedItems[i].UserProfileImg + "'/><span class='profileName'>" + mappedItems[i].UserName + "</span><img src='" + mappedItems[i].ItemImgUrl + "'/></div>");
+                            }
+                            else {
+                                $("#" + mappedItems[i].TargetId).parent().parent().append("<div class='row'><h3 style='background-color: " + colorList[i] + ";'>" + mappedItems[i].Name + "</h3><div id='" + mappedItems[i].TradeId + "' class='itemPanel'><img src='" + mappedItems[i].UserProfileImg + "'/><span class='profileName'>" + mappedItems[i].UserName + "</span><img src='" + mappedItems[i].ItemImgUrl + "'/></div></div>");
+                            }
+                        }
+                    }
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                //DangerMessage(errorThrown);
+            }
+        });
+    });
+</script>

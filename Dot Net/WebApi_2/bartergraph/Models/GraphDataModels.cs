@@ -16,5 +16,9 @@ namespace bartergraph.Models
         public string UserName { get; set; }
 
         public string TargetId { get; set; }
+
+        public string UserProfileImg { get; set; }
+
+        public string ItemImgUrl { get; set; }
     }
 }

@@ -1,13 +1,14 @@
-﻿using Microsoft.WindowsAzure.Mobile.Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace angel2015klService.DataObjects
+namespace angel2015klService.Models
 {
-    public class TradeItem : EntityData
+    public class TradeItemModel
     {
+        public string Id { get; set; }
+        
         public string UserId { get; set; }
 
         public string UserName { get; set; }
@@ -47,5 +48,7 @@ namespace angel2015klService.DataObjects
         public double? Altitude { get; set; }
 
         public bool IsActive { get; set; }
+
+        public List<TradeItemImgModel> TradeItemImg { get; set; }
     }
 }

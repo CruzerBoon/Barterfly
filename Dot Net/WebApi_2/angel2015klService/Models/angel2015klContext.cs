@@ -49,6 +49,8 @@ namespace angel2015klService.Models
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
+        public System.Data.Entity.DbSet<angel2015klService.DataObjects.TradeItemRequest> TradeItemRequests { get; set; }
     }
 
 }

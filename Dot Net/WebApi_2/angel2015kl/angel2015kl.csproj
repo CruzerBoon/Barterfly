@@ -75,6 +75,7 @@
     <Content Include="page.js" />
     <Content Include="SimpleMatch.html" />
     <Content Include="styles.css" />
+    <Content Include="tiger.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

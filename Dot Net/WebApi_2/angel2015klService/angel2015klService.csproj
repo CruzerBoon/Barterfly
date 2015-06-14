@@ -210,6 +210,7 @@
     <Compile Include="Controllers\TradeItemController.cs" />
     <Compile Include="Controllers\TradeItemImageController.cs" />
     <Compile Include="Controllers\TradeItemLikeController.cs" />
+    <Compile Include="Controllers\TradeItemRequestController.cs" />
     <Compile Include="Controllers\TradeItemWishListController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="DataObjects\RequestItem.cs" />
@@ -221,6 +222,7 @@
     <Compile Include="DataObjects\TradeItemComment.cs" />
     <Compile Include="DataObjects\TradeItemImage.cs" />
     <Compile Include="DataObjects\TradeItemLike.cs" />
+    <Compile Include="DataObjects\TradeItemRequest.cs" />
     <Compile Include="DataObjects\TradeItemWishList.cs" />
     <Compile Include="DataObjects\UserProfile.cs" />
     <Compile Include="Helper\Constant.cs" />
@@ -241,6 +243,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BarterflyModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TradeItemModel.cs" />
+    <Compile Include="Models\TradeItemImgModel.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -285,7 +289,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\angel2015kl - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\angel2015kl - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\angel2015kl - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\angel2015kl - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

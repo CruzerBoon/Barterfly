@@ -113,6 +113,7 @@
     <Content Include="Scripts\graph\dracula_graffle.js" />
     <Content Include="Scripts\graph\dracula_graph.js" />
     <Content Include="Scripts\graph\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\graph\randomColor.js" />
     <Content Include="Scripts\graph\raphael-min.js" />
     <Content Include="Scripts\graph\seedrandom.js" />
     <Content Include="Scripts\graph\vis.min.js" />
@@ -122,6 +123,7 @@
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Home\Index3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
